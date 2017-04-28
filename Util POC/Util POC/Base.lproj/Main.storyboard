@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -161,7 +161,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Complaints" image="Complaints" selectedImage="Complaints" id="OH6-XE-2nx"/>
+                    <tabBarItem key="tabBarItem" title="Complaints" selectedImage="Complaints" id="OH6-XE-2nx">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="btnOpenCamera" destination="tHV-CF-eBm" id="cXh-lM-uHh"/>
                         <outlet property="btnRemoveImagePreview" destination="VAe-Uk-lnt" id="YXB-RY-JTK"/>
@@ -190,7 +192,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account Details" image="details" selectedImage="details" id="y04-Yv-Ylk"/>
+                    <tabBarItem key="tabBarItem" title="Account Details" selectedImage="details" id="y04-Yv-Ylk">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKo-Dl-k9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hXf-3Y-fjf" id="PS2-Gz-hzP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3275 NW 24th Street Rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNh-On-HzY">
@@ -242,7 +246,7 @@
                                 <rect key="frame" x="0.0" y="84" width="375" height="260"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rFl-3K-nNy" id="BNo-sP-zTl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkA-Cn-ZPe">
@@ -338,7 +342,9 @@
                             <outlet property="delegate" destination="4c6-fT-NVs" id="5Y9-vP-1vA"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Recent Bills" image="billDetails" selectedImage="billDetails" id="PwU-Ls-0vv"/>
+                    <tabBarItem key="tabBarItem" title="Recent Bills" id="PwU-Ls-0vv">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slI-9k-7Y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -386,7 +392,6 @@
     </scenes>
     <resources>
         <image name="Complaints" width="15" height="15"/>
-        <image name="billDetails" width="15" height="15"/>
         <image name="delete" width="256" height="256"/>
         <image name="details" width="15" height="15"/>
     </resources>

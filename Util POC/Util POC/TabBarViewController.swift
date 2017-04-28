@@ -10,16 +10,15 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.navigationBar.barTintColor = .utlSunflowerYellow
         navigationController?.navigationBar.isTranslucent = true
-        navigationItem.addNavigationView(withImage: "telemarketer", title: "Complaints")
+        
+        tabBar.barTintColor = .utlSlate
+        UITabBar.appearance().tintColor = .utlSunflowerYellow
     }
 
 }

@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, CLLocationManagerDelegate {
-
+    
     @IBOutlet weak var imageViewPreview2: UIImageView!
     
     @IBOutlet weak var imageViewPreview: UIImageView!
@@ -31,15 +31,16 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Complaints")
+    }
+    
+    
+    
+    
     @IBAction func capturePhotoTapped(_ sender: Any) {
         imagePicker.delegate = self
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -79,7 +80,7 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func btnRemoveImagePreview1(_ sender: Any) {
         self.imageViewPreview.image = nil
         self.btnRemoveImagePreview.isHidden = true
@@ -91,7 +92,7 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
         self.checkCameraButtonStatus()
     }
     
-
+    
     @IBAction func btnRemoveImagePreview3(_ sender: Any) {
         self.imageViewPreview2.image = nil
         self.btnRemoveImagePreview2.isHidden = true
@@ -120,37 +121,37 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
     
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!)
     {        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-            if (error != nil) {
-                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-                return
-            }
-            
-            if (placemarks?.count)! > 0 {
-                let pm = placemarks?[0]
-                self.displayLocationInfo(placemark: pm!)
-            } else {
-                print("Problem with the data received from geocoder")
-            }
-        })
+        if (error != nil) {
+            print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+            return
+        }
+        
+        if (placemarks?.count)! > 0 {
+            let pm = placemarks?[0]
+            self.displayLocationInfo(placemark: pm!)
+        } else {
+            print("Problem with the data received from geocoder")
+        }
+    })
     }
     
     func displayLocationInfo(placemark: CLPlacemark) {
-            //stop updating location to save battery life
-            locationManager.stopUpdatingLocation()
-//            print(placemark.locality ? placemark.locality! : "")
-//            print(placemark.postalCode ? ? placemark.postalCode : "")
-//            print(placemark.administrativeArea ? ? placemark.administrativeArea : "")
-//            print(placemark.country ? ? placemark.country : "")
+        //stop updating location to save battery life
+        locationManager.stopUpdatingLocation()
+        //            print(placemark.locality ? placemark.locality! : "")
+        //            print(placemark.postalCode ? ? placemark.postalCode : "")
+        //            print(placemark.administrativeArea ? ? placemark.administrativeArea : "")
+        //            print(placemark.country ? ? placemark.country : "")
         self.lblAddressField.text =  placemark.locality
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
