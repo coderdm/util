@@ -17,4 +17,8 @@ extension UIColor {
     class var utlSlate: UIColor {
         return UIColor(red: 72.0 / 255.0, green: 78.0 / 255.0, blue: 99.0 / 255.0, alpha: 1.0)
     }
+    
+    class var utlWarmGrey: UIColor {
+        return UIColor(white: 155.0 / 255.0, alpha: 1.0)
+    }
 }

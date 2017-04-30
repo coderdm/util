@@ -11,6 +11,23 @@ import CoreLocation
 
 class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, CLLocationManagerDelegate {
     
+    // IBOutlets
+    
+    // Call View
+    @IBOutlet weak var callBorderView: UIView!
+    @IBOutlet weak var callTextLabel: UILabel!
+    @IBOutlet weak var callButton: NSLayoutConstraint!
+    
+    // Choose Outage View
+    @IBOutlet weak var outageTextLabel: UILabel!
+    @IBOutlet weak var outageBorderView: UIView!
+    @IBOutlet weak var dropDownButton: UIButton!
+    
+    // Address Fields
+    @IBOutlet weak var lblAddressField: UITextField!
+    @IBOutlet weak var addressBorderView: UIView!
+
+    
     @IBOutlet weak var imageViewPreview2: UIImageView!
     
     @IBOutlet weak var imageViewPreview: UIImageView!
@@ -22,7 +39,6 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet weak var btnRemoveImagePreview1: UIButton!
     
-    @IBOutlet weak var lblAddressField: UITextField!
     @IBOutlet weak var btnOpenCamera: UIButton!
     let imagePicker = UIImagePickerController()
     let locationManager = CLLocationManager()
@@ -31,6 +47,13 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        callBorderView.backgroundColor = UIColor.utlWarmGrey.withAlphaComponent(0.25)
+        callTextLabel.textColor = UIColor.utlSlate.withAlphaComponent(0.85)
+        
+        outageBorderView.backgroundColor = UIColor.utlWarmGrey.withAlphaComponent(0.25)
+        outageTextLabel.textColor = UIColor.utlSlate.withAlphaComponent(0.85)
+        
+        addressBorderView.backgroundColor = UIColor.utlWarmGrey.withAlphaComponent(0.25)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,5 +176,11 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
      // Pass the selected object to the new view controller.
      }
      */
+    
+    
+    // MARK: IBAction
+    @IBAction func callAction(_ sender: Any) {
+    }
+    
     
 }

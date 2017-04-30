@@ -10,6 +10,8 @@ import UIKit
 
 class RecentBillsTableViewController: UITableViewController {
     var expandedArray:Array<Bool> = [false,false]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,11 +20,6 @@ class RecentBillsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "recentBillIcon", title: "Recent Bills")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -53,16 +50,10 @@ class RecentBillsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellBillDetails", for: indexPath)
-
-        // Configure the cell...
-
         return cell
     }
  
-    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    }
-    
     override public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 260
     }
