@@ -26,20 +26,18 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     // Address Fields
     @IBOutlet weak var lblAddressField: UITextField!
     @IBOutlet weak var addressBorderView: UIView!
-
     
+    // Add Image view
+    @IBOutlet weak var addImageTitleLabel: UILabel!
+    @IBOutlet weak var btnOpenCamera: UIButton!
+     @IBOutlet weak var imageViewPreview: UIImageView!
+   @IBOutlet weak var imageViewPreview1: UIImageView!
     @IBOutlet weak var imageViewPreview2: UIImageView!
-    
-    @IBOutlet weak var imageViewPreview: UIImageView!
-    @IBOutlet weak var imageViewPreview1: UIImageView!
-    
     @IBOutlet weak var btnRemoveImagePreview: UIButton!
-    
     @IBOutlet weak var btnRemoveImagePreview2: UIButton!
-    
     @IBOutlet weak var btnRemoveImagePreview1: UIButton!
     
-    @IBOutlet weak var btnOpenCamera: UIButton!
+    
     let imagePicker = UIImagePickerController()
     let locationManager = CLLocationManager()
     
