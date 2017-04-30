@@ -30,12 +30,15 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     // Add Image view
     @IBOutlet weak var addImageTitleLabel: UILabel!
     @IBOutlet weak var btnOpenCamera: UIButton!
-     @IBOutlet weak var imageViewPreview: UIImageView!
-   @IBOutlet weak var imageViewPreview1: UIImageView!
+    @IBOutlet weak var imageViewPreview: UIImageView!
+    @IBOutlet weak var imageViewPreview1: UIImageView!
     @IBOutlet weak var imageViewPreview2: UIImageView!
     @IBOutlet weak var btnRemoveImagePreview: UIButton!
     @IBOutlet weak var btnRemoveImagePreview2: UIButton!
     @IBOutlet weak var btnRemoveImagePreview1: UIButton!
+    
+    // Submit button
+    @IBOutlet weak var submitButton: UIButton!
     
     
     let imagePicker = UIImagePickerController()
@@ -57,6 +60,12 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         lblAddressField.layer.cornerRadius = 20
         lblAddressField.layer.borderColor = UIColor.utlWarmGrey.withAlphaComponent(0.25).cgColor
         lblAddressField.layer.borderWidth = 1.0
+        
+        addImageTitleLabel.text = "Add photos"
+        addImageTitleLabel.textColor = UIColor.utlSlate.withAlphaComponent(0.85)
+        
+        submitButton.backgroundColor = UIColor.utlRedPink
+        submitButton.layer.cornerRadius = 20
 
     }
     
