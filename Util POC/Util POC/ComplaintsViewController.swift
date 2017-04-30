@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, CLLocationManagerDelegate {
+class ComplaintsViewController: UIViewController, UINavigationControllerDelegate {
     
     // IBOutlets
     
@@ -43,7 +43,7 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
     let imagePicker = UIImagePickerController()
     let locationManager = CLLocationManager()
     
-    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,12 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
         outageTextLabel.textColor = UIColor.utlSlate.withAlphaComponent(0.85)
         
         addressBorderView.backgroundColor = UIColor.utlWarmGrey.withAlphaComponent(0.25)
+        addButton(to: lblAddressField)
+   
+        lblAddressField.layer.cornerRadius = 20
+        lblAddressField.layer.borderColor = UIColor.utlWarmGrey.withAlphaComponent(0.25).cgColor
+        lblAddressField.layer.borderWidth = 1.0
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,8 +67,59 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
         navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Complaints")
     }
     
+     // MARK: - Custom
+    
+    func checkCameraButtonStatus() {
+        if self.imageViewPreview.image != nil && self.imageViewPreview1.image != nil && self.imageViewPreview2.image != nil {
+            self.btnOpenCamera.isHidden = true
+        }
+        else {
+            self.btnOpenCamera.isHidden = false
+        }
+    }
+
+    
+    func displayLocationInfo(placemark: CLPlacemark) {
+        //stop updating location to save battery life
+        locationManager.stopUpdatingLocation()
+        //            print(placemark.locality ? placemark.locality! : "")
+        //            print(placemark.postalCode ? ? placemark.postalCode : "")
+        //            print(placemark.administrativeArea ? ? placemark.administrativeArea : "")
+        //            print(placemark.country ? ? placemark.country : "")
+        self.lblAddressField.text =  placemark.locality
+    }
     
     
+    func addButton(to textField: UITextField) {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        button.setImage(UIImage(named: "gpsIcon"), for: .normal)
+        textField.rightViewMode = UITextFieldViewMode.always
+        //textField.rightViewRect(forBounds: CGRect(x: 0, y: 0, width: 44, height: 44))
+        textField.rightView = button
+    }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
+    // MARK: - IBAction
+    @IBAction func callAction(_ sender: Any) {
+    }
+    
+    @IBAction func btnGetAddressLocationTapped(_ sender: Any) {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
     
     @IBAction func capturePhotoTapped(_ sender: Any) {
         imagePicker.delegate = self
@@ -81,6 +138,53 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func btnRemoveImagePreview1(_ sender: Any) {
+        self.imageViewPreview.image = nil
+        self.btnRemoveImagePreview.isHidden = true
+        self.checkCameraButtonStatus()
+    }
+    @IBAction func btnRemoveImagePreview2(_ sender: Any) {
+        self.imageViewPreview1.image = nil
+        self.btnRemoveImagePreview1.isHidden = true
+        self.checkCameraButtonStatus()
+    }
+    
+    
+    @IBAction func btnRemoveImagePreview3(_ sender: Any) {
+        self.imageViewPreview2.image = nil
+        self.btnRemoveImagePreview2.isHidden = true
+        self.checkCameraButtonStatus()
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension ComplaintsViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error while updating location " + error.localizedDescription)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!)
+    {        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+        if (error != nil) {
+            print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+            return
+        }
+        
+        if (placemarks?.count)! > 0 {
+            let pm = placemarks?[0]
+            self.displayLocationInfo(placemark: pm!)
+        } else {
+            print("Problem with the data received from geocoder")
+        }
+    })
+    }
+}
+
+// MARK: -  UIImagePickerControllerDelegate
+
+extension ComplaintsViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil);
@@ -103,84 +207,4 @@ class ComplaintsViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func btnRemoveImagePreview1(_ sender: Any) {
-        self.imageViewPreview.image = nil
-        self.btnRemoveImagePreview.isHidden = true
-        self.checkCameraButtonStatus()
-    }
-    @IBAction func btnRemoveImagePreview2(_ sender: Any) {
-        self.imageViewPreview1.image = nil
-        self.btnRemoveImagePreview1.isHidden = true
-        self.checkCameraButtonStatus()
-    }
-    
-    
-    @IBAction func btnRemoveImagePreview3(_ sender: Any) {
-        self.imageViewPreview2.image = nil
-        self.btnRemoveImagePreview2.isHidden = true
-        self.checkCameraButtonStatus()
-    }
-    
-    func checkCameraButtonStatus() {
-        if self.imageViewPreview.image != nil && self.imageViewPreview1.image != nil && self.imageViewPreview2.image != nil {
-            self.btnOpenCamera.isHidden = true
-        }
-        else {
-            self.btnOpenCamera.isHidden = false
-        }
-    }
-    
-    @IBAction func btnGetAddressLocationTapped(_ sender: Any) {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error while updating location " + error.localizedDescription)
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!)
-    {        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-        if (error != nil) {
-            print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-            return
-        }
-        
-        if (placemarks?.count)! > 0 {
-            let pm = placemarks?[0]
-            self.displayLocationInfo(placemark: pm!)
-        } else {
-            print("Problem with the data received from geocoder")
-        }
-    })
-    }
-    
-    func displayLocationInfo(placemark: CLPlacemark) {
-        //stop updating location to save battery life
-        locationManager.stopUpdatingLocation()
-        //            print(placemark.locality ? placemark.locality! : "")
-        //            print(placemark.postalCode ? ? placemark.postalCode : "")
-        //            print(placemark.administrativeArea ? ? placemark.administrativeArea : "")
-        //            print(placemark.country ? ? placemark.country : "")
-        self.lblAddressField.text =  placemark.locality
-    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-    // MARK: IBAction
-    @IBAction func callAction(_ sender: Any) {
-    }
-    
-    
 }
