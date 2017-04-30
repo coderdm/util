@@ -76,7 +76,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     
      // MARK: - Custom
     
-    func checkCameraButtonStatus() {
+   func checkCameraButtonStatus() {
         if self.imageViewPreview.image != nil && self.imageViewPreview1.image != nil && self.imageViewPreview2.image != nil {
             self.btnOpenCamera.isHidden = true
         }
@@ -85,6 +85,35 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         }
     }
 
+    private func callNumber(phoneNumber:String) {
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    private func showOutageSelection() {
+        // Create the AlertController and add its actions like button in ActionSheet
+        let actionSheetController = UIAlertController(title: "Please Choose", message: "Outage Type", preferredStyle: .actionSheet)
+        
+        let noPowerSupplyButton = UIAlertAction(title: "No power supply available", style: .default) { action -> Void in
+            self.outageTextLabel.text = "No power supply available"
+        }
+        actionSheetController.addAction(noPowerSupplyButton)
+        
+        let damageElectricPoleButton = UIAlertAction(title: "Damage to an electric pole", style: .default) { action -> Void in
+            self.outageTextLabel.text = "Damage to an electric pole"
+        }
+        actionSheetController.addAction(damageElectricPoleButton)
+
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            print("Cancel")
+        }
+        actionSheetController.addAction(cancelActionButton)
+        self.present(actionSheetController, animated: true, completion: nil)
+    }
     
     func displayLocationInfo(placemark: CLPlacemark) {
         //stop updating location to save battery life
@@ -119,6 +148,12 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     
     // MARK: - IBAction
     @IBAction func callAction(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "Call 911", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            self.callNumber(phoneNumber: "911")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func btnGetAddressLocationTapped(_ sender: Any) {
@@ -127,6 +162,11 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
+    @IBAction func outageSelectionAction(_ sender: Any) {
+        showOutageSelection()
+    }
+    
     
     @IBAction func capturePhotoTapped(_ sender: Any) {
         imagePicker.delegate = self
@@ -155,7 +195,6 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         self.btnRemoveImagePreview1.isHidden = true
         self.checkCameraButtonStatus()
     }
-    
     
     @IBAction func btnRemoveImagePreview3(_ sender: Any) {
         self.imageViewPreview2.image = nil
