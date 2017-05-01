@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jze-oq-0hY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="477.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRJ-oO-aSj">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
@@ -303,39 +303,37 @@
                                             <constraint firstItem="qkL-2c-0NQ" firstAttribute="leading" secondItem="tHV-CF-eBm" secondAttribute="trailing" constant="25" id="xNa-VE-867"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcf-qC-amW">
+                                        <rect key="frame" x="0.0" y="477.5" width="375" height="81.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NP-n0-bib">
+                                                <rect key="frame" x="107" y="19" width="160" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="160" id="Dcq-F3-U4L"/>
+                                                    <constraint firstAttribute="height" constant="44" id="eKg-D0-OHK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <state key="normal" title="Submit">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="3NP-n0-bib" firstAttribute="centerY" secondItem="zcf-qC-amW" secondAttribute="centerY" id="KtD-2Q-zHd"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="81.5" id="NYz-4A-Med"/>
+                                            <constraint firstItem="3NP-n0-bib" firstAttribute="centerX" secondItem="zcf-qC-amW" secondAttribute="centerX" id="Njm-rk-cj3"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcf-qC-amW">
-                                <rect key="frame" x="0.0" y="541.5" width="375" height="81.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NP-n0-bib">
-                                        <rect key="frame" x="107" y="19" width="160" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="Dcq-F3-U4L"/>
-                                            <constraint firstAttribute="height" constant="44" id="Y7y-Cw-ohz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Submit">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="3NP-n0-bib" firstAttribute="centerY" secondItem="zcf-qC-amW" secondAttribute="centerY" id="KtD-2Q-zHd"/>
-                                    <constraint firstItem="3NP-n0-bib" firstAttribute="centerX" secondItem="zcf-qC-amW" secondAttribute="centerX" id="Njm-rk-cj3"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="zcf-qC-amW" secondAttribute="trailing" id="2Qq-UR-YDD"/>
                             <constraint firstAttribute="trailing" secondItem="jze-oq-0hY" secondAttribute="trailing" id="AqQ-9S-RCX"/>
-                            <constraint firstAttribute="bottom" secondItem="zcf-qC-amW" secondAttribute="bottom" constant="44" id="HbN-YZ-n51"/>
                             <constraint firstItem="jze-oq-0hY" firstAttribute="leading" secondItem="GfK-HK-6Za" secondAttribute="leading" id="Pwm-ih-yo1"/>
                             <constraint firstItem="jze-oq-0hY" firstAttribute="top" secondItem="cfT-uq-dVV" secondAttribute="bottom" id="eBY-0e-x3J"/>
-                            <constraint firstItem="zcf-qC-amW" firstAttribute="top" secondItem="jze-oq-0hY" secondAttribute="bottom" id="m3K-fb-Sdg"/>
-                            <constraint firstItem="zcf-qC-amW" firstAttribute="leading" secondItem="GfK-HK-6Za" secondAttribute="leading" id="t0U-UG-q57"/>
+                            <constraint firstAttribute="bottom" secondItem="jze-oq-0hY" secondAttribute="bottom" constant="44" id="pD3-Ot-bxx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="COMPLAINTS" selectedImage="Complaints" id="OH6-XE-2nx">

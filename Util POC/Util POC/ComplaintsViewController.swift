@@ -65,7 +65,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         addImageTitleLabel.textColor = UIColor.utlSlate.withAlphaComponent(0.85)
         
         submitButton.backgroundColor = UIColor.utlRedPink
-        submitButton.layer.cornerRadius = 20
+        submitButton.layer.cornerRadius = submitButton.frame.size.height/2 
 
     }
     
@@ -129,22 +129,11 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     func addButton(to textField: UITextField) {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         button.setImage(UIImage(named: "gpsIcon"), for: .normal)
+        button.addTarget(self, action:#selector(btnGetAddressLocationTapped(_:)), for: .touchUpInside)
         textField.rightViewMode = UITextFieldViewMode.always
-        //textField.rightViewRect(forBounds: CGRect(x: 0, y: 0, width: 44, height: 44))
         textField.rightView = button
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
     
     // MARK: - IBAction
     @IBAction func callAction(_ sender: Any) {
@@ -159,7 +148,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     @IBAction func btnGetAddressLocationTapped(_ sender: Any) {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
     }
     
@@ -211,20 +200,34 @@ extension ComplaintsViewController: CLLocationManagerDelegate {
         print("Error while updating location " + error.localizedDescription)
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!)
-    {        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-        if (error != nil) {
-            print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-            return
+    
+    
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+        print("here")
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+            if (error != nil) {
+                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+                return
+            }
+            
+            if (placemarks?.count)! > 0 {
+                let pm = placemarks?[0]
+                self.displayLocationInfo(placemark: pm!)
+            } else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case CLAuthorizationStatus.notDetermined, CLAuthorizationStatus.restricted, CLAuthorizationStatus.denied:
+            print ("Error: Permission denied")
+            break
+        default:
+            locationManager.startUpdatingLocation()
+            break
         }
-        
-        if (placemarks?.count)! > 0 {
-            let pm = placemarks?[0]
-            self.displayLocationInfo(placemark: pm!)
-        } else {
-            print("Problem with the data received from geocoder")
-        }
-    })
     }
 }
 
