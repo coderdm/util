@@ -15,71 +15,123 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Util_POC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6d6-L2-Tfn">
-                                <rect key="frame" x="31" y="177" width="312" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6d6-L2-Tfn">
+                                <rect key="frame" x="31" y="113" width="312" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5m-xg-vhu">
-                                <rect key="frame" x="31" y="240" width="312" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5m-xg-vhu">
+                                <rect key="frame" x="31" y="176" width="312" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01T-Xu-88j">
-                                <rect key="frame" x="153" y="470" width="69" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01T-Xu-88j">
+                                <rect key="frame" x="152.5" y="406" width="69" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="koD-GL-imc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sign up">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.98039215690000003" green="0.1960784314" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbF-xp-HYs">
-                                <rect key="frame" x="165" y="418" width="45" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.72549019607843135" green="0.73333333333333328" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="&gt;">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-m2-uwx">
+                                <rect key="frame" x="0.0" y="0.0" width="188" height="55"/>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30588235294117649" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginTabSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8fZ-HJ-oEJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpf-Us-hdy">
+                                <rect key="frame" x="187" y="-1" width="188" height="56"/>
+                                <color key="backgroundColor" red="0.28235294119999998" green="0.30588235289999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="HnH-wa-eMo"/>
+                                </constraints>
+                                <state key="normal" title="Pay for another">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="PayForAnotherTabSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wRr-eK-bZa"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="be1-L2-k6K">
+                                <rect key="frame" x="0.0" y="49" width="188" height="5"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.19607843137254902" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="LBZ-nV-F9c"/>
+                                    <constraint firstAttribute="width" constant="188" id="zyD-Z5-cDH"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NJV-Gz-Ggv">
+                                <rect key="frame" x="188" y="49" width="188" height="5"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.1960784314" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbF-xp-HYs">
+                                <rect key="frame" x="157" y="338" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="7g9-ql-eyO"/>
+                                    <constraint firstAttribute="height" constant="60" id="X7x-2i-Gzo"/>
+                                </constraints>
+                                <state key="normal" image="red-arrow">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="XeM-AB-vAn" kind="show" id="mtw-oh-aim"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-m2-uwx">
-                                <rect key="frame" x="0.0" y="64" width="199" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28235294117647058" green="0.30588235294117649" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpf-Us-hdy">
-                                <rect key="frame" x="197" y="63" width="178" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28235294119999998" green="0.30588235289999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Pay for another">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tbF-xp-HYs" firstAttribute="centerX" secondItem="01T-Xu-88j" secondAttribute="centerX" id="0Sp-gw-A3x"/>
+                            <constraint firstItem="be1-L2-k6K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="49" id="7Ae-AR-h5K"/>
+                            <constraint firstItem="6d6-L2-Tfn" firstAttribute="trailing" secondItem="u5m-xg-vhu" secondAttribute="trailing" id="9jI-fh-hCe"/>
+                            <constraint firstItem="eB2-m2-uwx" firstAttribute="trailing" secondItem="be1-L2-k6K" secondAttribute="trailing" id="EOb-mV-Lqx"/>
+                            <constraint firstItem="Lpf-Us-hdy" firstAttribute="bottom" secondItem="NJV-Gz-Ggv" secondAttribute="bottom" constant="1" id="KjL-HU-HBO"/>
+                            <constraint firstItem="01T-Xu-88j" firstAttribute="top" secondItem="tbF-xp-HYs" secondAttribute="bottom" constant="8" symbolic="YES" id="LI3-m3-FBj"/>
+                            <constraint firstItem="be1-L2-k6K" firstAttribute="bottom" secondItem="eB2-m2-uwx" secondAttribute="bottom" constant="-1" id="Oka-9q-pFd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="01T-Xu-88j" secondAttribute="bottom" constant="167" id="QN3-5e-eEW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NJV-Gz-Ggv" secondAttribute="trailing" constant="-17" id="Vrp-fE-Xtv"/>
+                            <constraint firstItem="NJV-Gz-Ggv" firstAttribute="leading" secondItem="be1-L2-k6K" secondAttribute="trailing" id="XDI-JD-ZGz"/>
+                            <constraint firstItem="6d6-L2-Tfn" firstAttribute="leading" secondItem="u5m-xg-vhu" secondAttribute="leading" id="Zrd-cI-wjx"/>
+                            <constraint firstItem="be1-L2-k6K" firstAttribute="bottom" secondItem="Lpf-Us-hdy" secondAttribute="bottom" constant="-1" id="aYL-v1-BFA"/>
+                            <constraint firstItem="6d6-L2-Tfn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hS3-AZ-1O7"/>
+                            <constraint firstItem="6d6-L2-Tfn" firstAttribute="top" secondItem="be1-L2-k6K" secondAttribute="bottom" constant="59" id="hdf-OR-WvE"/>
+                            <constraint firstItem="be1-L2-k6K" firstAttribute="top" secondItem="NJV-Gz-Ggv" secondAttribute="top" id="i89-ep-tlH"/>
+                            <constraint firstItem="6d6-L2-Tfn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="kK2-Ea-Vrj"/>
+                            <constraint firstItem="eB2-m2-uwx" firstAttribute="centerY" secondItem="Lpf-Us-hdy" secondAttribute="centerY" id="msV-uI-zY5"/>
+                            <constraint firstItem="eB2-m2-uwx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="p1V-qp-mNG"/>
+                            <constraint firstAttribute="trailing" secondItem="Lpf-Us-hdy" secondAttribute="trailing" id="qqd-Pp-N4d"/>
+                            <constraint firstItem="u5m-xg-vhu" firstAttribute="top" secondItem="6d6-L2-Tfn" secondAttribute="bottom" constant="33" id="qxy-9Q-9G6"/>
+                            <constraint firstItem="u5m-xg-vhu" firstAttribute="centerX" secondItem="tbF-xp-HYs" secondAttribute="centerX" id="si9-EB-M4T"/>
+                            <constraint firstItem="eB2-m2-uwx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vMY-5Q-5nv"/>
+                            <constraint firstItem="eB2-m2-uwx" firstAttribute="leading" secondItem="be1-L2-k6K" secondAttribute="leading" id="vaj-J4-Eno"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QyK-Yg-5i2"/>
+                    <connections>
+                        <outlet property="btnLogin" destination="eB2-m2-uwx" id="dSV-h4-84C"/>
+                        <outlet property="btnPayForAnother" destination="Lpf-Us-hdy" id="eFh-Gg-g5P"/>
+                        <outlet property="imageLoginSelected" destination="be1-L2-k6K" id="I6f-0p-68F"/>
+                        <outlet property="imagePayForAnotherSelected" destination="NJV-Gz-Ggv" id="iRv-1x-ApE"/>
+                        <outlet property="txtFieldPassword" destination="u5m-xg-vhu" id="C6Q-jH-zlU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,11 +146,11 @@
                         <viewControllerLayoutGuide type="bottom" id="YLa-QY-l6g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GfK-HK-6Za">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVn-X9-t35">
-                                <rect key="frame" x="16" y="0.0" width="343" height="623"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4K-Oc-3Kj">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="586"/>
@@ -400,7 +452,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GfB-Nf-U88"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VDn-Dk-cl7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -417,7 +469,7 @@
             <objects>
                 <tableViewController id="4c6-fT-NVs" customClass="RecentBillsTableViewController" customModule="Util_POC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" id="3vt-qD-hH2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -588,7 +640,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aZe-YR-8sg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2fV-ZV-dXi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2fV-ZV-dXi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -609,5 +661,6 @@
         <image name="delete" width="256" height="256"/>
         <image name="details" width="15" height="15"/>
         <image name="dropdown" width="21" height="12"/>
+        <image name="red-arrow" width="80" height="80"/>
     </resources>
 </document>
