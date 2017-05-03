@@ -42,7 +42,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     
     
     let imagePicker = UIImagePickerController()
-    let locationManager = CLLocationManager()
+    var locationManager:CLLocationManager = CLLocationManager()
     
     // MARK: - Lifecycle
     
@@ -65,7 +65,9 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         addImageTitleLabel.textColor = UIColor.utlSlate.withAlphaComponent(0.85)
         
         submitButton.backgroundColor = UIColor.utlRedPink
-        submitButton.layer.cornerRadius = submitButton.frame.size.height/2 
+        submitButton.layer.cornerRadius = submitButton.frame.size.height/2
+        
+        self.locationManager.delegate = self
 
     }
     
@@ -98,16 +100,29 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         // Create the AlertController and add its actions like button in ActionSheet
         let actionSheetController = UIAlertController(title: "Please Choose", message: "Outage Type", preferredStyle: .actionSheet)
         
-        let noPowerSupplyButton = UIAlertAction(title: "No power supply available", style: .default) { action -> Void in
-            self.outageTextLabel.text = "No power supply available"
+        let streetLightOutage = UIAlertAction(title: "Streetlight Outage", style: .default) { action -> Void in
+            self.outageTextLabel.text = "Streetlight Outage"
+        }
+        actionSheetController.addAction(streetLightOutage)
+        
+        
+        let damageElectricPoleButton = UIAlertAction(title: "Safety Concern", style: .default) { action -> Void in
+            self.outageTextLabel.text = "Safety Concern"
+        }
+        actionSheetController.addAction(damageElectricPoleButton)
+        
+        
+        let noPowerSupplyButton = UIAlertAction(title: "Power Outage", style: .default) { action -> Void in
+            self.outageTextLabel.text = "Power Outage"
         }
         actionSheetController.addAction(noPowerSupplyButton)
         
-        let damageElectricPoleButton = UIAlertAction(title: "Damage to an electric pole", style: .default) { action -> Void in
-            self.outageTextLabel.text = "Damage to an electric pole"
-        }
-        actionSheetController.addAction(damageElectricPoleButton)
 
+        let otherOutage = UIAlertAction(title: "Other", style: .default) { action -> Void in
+            self.outageTextLabel.text = "Other"
+        }
+        actionSheetController.addAction(otherOutage)
+        
         let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             print("Cancel")
         }
@@ -118,13 +133,19 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     func displayLocationInfo(placemark: CLPlacemark) {
         //stop updating location to save battery life
         locationManager.stopUpdatingLocation()
-        //            print(placemark.locality ? placemark.locality! : "")
-        //            print(placemark.postalCode ? ? placemark.postalCode : "")
-        //            print(placemark.administrativeArea ? ? placemark.administrativeArea : "")
-        //            print(placemark.country ? ? placemark.country : "")
-        self.lblAddressField.text =  placemark.locality
+        self.lblAddressField.text = self.getAddressString(placemark: placemark)
     }
     
+    func getAddressString(placemark: CLPlacemark) -> String? {
+        var originAddress : String?
+        
+        if let addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String]
+        {
+            originAddress =  addrList.joined(separator: ", ")
+        }
+        
+        return originAddress
+    }
     
     func addButton(to textField: UITextField) {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -146,7 +167,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     }
     
     @IBAction func btnGetAddressLocationTapped(_ sender: Any) {
-        locationManager.delegate = self
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -185,6 +206,13 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         self.checkCameraButtonStatus()
     }
     
+    @IBAction func btnSubmitTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Thank you", message: "Your complaint has been received", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     @IBAction func btnRemoveImagePreview3(_ sender: Any) {
         self.imageViewPreview2.image = nil
         self.btnRemoveImagePreview2.isHidden = true
@@ -200,10 +228,11 @@ extension ComplaintsViewController: CLLocationManagerDelegate {
         print("Error while updating location " + error.localizedDescription)
     }
     
-    
-    
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        print("here")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("locationmanager got called")
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
             if (error != nil) {
                 print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
@@ -217,8 +246,9 @@ extension ComplaintsViewController: CLLocationManagerDelegate {
                 print("Problem with the data received from geocoder")
             }
         })
+
     }
-    
+      
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case CLAuthorizationStatus.notDetermined, CLAuthorizationStatus.restricted, CLAuthorizationStatus.denied:

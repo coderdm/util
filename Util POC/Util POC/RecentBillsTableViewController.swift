@@ -14,7 +14,9 @@ class RecentBillsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.barTintColor = .utlSunflowerYellow
+        navigationController?.navigationBar.isTranslucent = true
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

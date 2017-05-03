@@ -13,10 +13,7 @@ class TabBarViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        navigationController?.navigationBar.barTintColor = .utlSunflowerYellow
-        navigationController?.navigationBar.isTranslucent = true
-        
+        self.navigationItem.setHidesBackButton(true, animated: false)        
         tabBar.barTintColor = .utlSlate
         UITabBar.appearance().tintColor = .utlSunflowerYellow
     }

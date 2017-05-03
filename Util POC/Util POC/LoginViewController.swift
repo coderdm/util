@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtFieldPassword: UITextField!
 
     @IBOutlet weak var btnPayForAnother: UIButton!
@@ -29,13 +29,20 @@ class LoginViewController: UIViewController {
         
         //Changing the navigation bar color
         navigationController?.navigationBar.barTintColor = UIColor.utlSlate
+        self.txtFieldPassword.delegate = self
         
         
         //For Removing the bottom black line in navigation bar
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        //self.navigationController?.navigationBar.shadowImage = UIImage()
 
     }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     @IBAction func PayForAnotherTabSelected(_ sender: Any) {
         self.imagePayForAnotherSelected.isHidden = false
         self.imageLoginSelected.isHidden = true
@@ -51,5 +58,7 @@ class LoginViewController: UIViewController {
         self.btnPayForAnother.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         self.txtFieldPassword.isHidden = false
     }
+    
+    
 }
 
