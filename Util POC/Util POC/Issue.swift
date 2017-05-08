@@ -15,13 +15,15 @@ class Issue: NSObject {
     var status:String = ""
     var lat:String = ""
     var long:String = ""
+    var referenceNumber = ""
     
-    init(issueType:String, dateReported:String, issueAddress:String, status:String, lat:String, lon:String) {
+    init(issueType:String, dateReported:String, issueAddress:String, status:String, lat:String, lon:String , referenceNumber:String) {
         self.issueType = issueType
         self.dateReported = dateReported
         self.issueAddress = issueAddress
         self.status = status
         self.lat = lat
         self.long = lon
+        self.referenceNumber = referenceNumber
     }
 }
