@@ -24,6 +24,8 @@
 		469F360B1EBB2B70002AF919 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F360A1EBB2B70002AF919 /* UIView.swift */; };
 		82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B021EB3850200EBE95E /* UIColor.swift */; };
 		82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */; };
+		82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */; };
+		82E03A791EC0ED8C000DB75F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E03A781EC0ED8C000DB75F /* SignUp.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		469F360A1EBB2B70002AF919 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		82AA6B021EB3850200EBE95E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
+		82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpIntroViewController.swift; sourceTree = "<group>"; };
+		82E03A781EC0ED8C000DB75F /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				464975241EAF2578005CFE24 /* Controllers */,
 				464975121EAF2375005CFE24 /* AppDelegate.swift */,
 				464975161EAF2375005CFE24 /* Main.storyboard */,
+				82E03A781EC0ED8C000DB75F /* SignUp.storyboard */,
 				464975191EAF2375005CFE24 /* Assets.xcassets */,
 				4649751B1EAF2375005CFE24 /* LaunchScreen.storyboard */,
 				4649751E1EAF2375005CFE24 /* Info.plist */,
@@ -102,6 +107,7 @@
 				464975291EAF2A36005CFE24 /* ComplaintsViewController.swift */,
 				4649752B1EAF2A64005CFE24 /* DetailsViewController.swift */,
 				469F36051EBAF8A1002AF919 /* ReportIssueViewController.swift */,
+				82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 			files = (
 				4649751D1EAF2375005CFE24 /* LaunchScreen.storyboard in Resources */,
 				4649751A1EAF2375005CFE24 /* Assets.xcassets in Resources */,
+				82E03A791EC0ED8C000DB75F /* SignUp.storyboard in Resources */,
 				464975181EAF2375005CFE24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +228,7 @@
 				469F36061EBAF8A1002AF919 /* ReportIssueViewController.swift in Sources */,
 				464975281EAF2A11005CFE24 /* RecentBillsTableViewController.swift in Sources */,
 				82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */,
+				82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */,
 				4649757B1EB1A635005CFE24 /* BillRowAddressTableViewCell.swift in Sources */,
 				464975261EAF279C005CFE24 /* TabBarViewController.swift in Sources */,
 				82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */,
