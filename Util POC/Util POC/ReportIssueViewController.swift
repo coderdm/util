@@ -16,6 +16,7 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    
         if (appDelegate.issue.isEmpty) {
             let issue = Issue(issueType: "Streetlight Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Miami", status: "Report Submitted", lat: "25.7617", lon: "80.1918")
             appDelegate.issue.append(issue)
@@ -31,6 +32,19 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Complaints")
+        
+        let rightButtonItem = UIBarButtonItem.init(
+            title: "Map",
+            style: .done,
+            target: self,
+            action: #selector(rightButtonAction)
+        )
+        
+        navigationController?.visibleViewController?.navigationItem.rightBarButtonItem = rightButtonItem
+    }
+    
+    func rightButtonAction(sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "showMapView", sender: self)
     }
     
     @IBAction func btnReportIssueTapped(_ sender: Any) {

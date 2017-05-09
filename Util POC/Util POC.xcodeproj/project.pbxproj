@@ -22,6 +22,7 @@
 		469F36061EBAF8A1002AF919 /* ReportIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F36051EBAF8A1002AF919 /* ReportIssueViewController.swift */; };
 		469F36091EBB16B4002AF919 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F36081EBB16B4002AF919 /* Issue.swift */; };
 		469F360B1EBB2B70002AF919 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F360A1EBB2B70002AF919 /* UIView.swift */; };
+		46DC16AF1EC18B0800F1B77C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DC16AE1EC18B0800F1B77C /* MapViewController.swift */; };
 		82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B021EB3850200EBE95E /* UIColor.swift */; };
 		82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */; };
 		82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */; };
@@ -46,6 +47,7 @@
 		469F36051EBAF8A1002AF919 /* ReportIssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportIssueViewController.swift; sourceTree = "<group>"; };
 		469F36081EBB16B4002AF919 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		469F360A1EBB2B70002AF919 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		46DC16AE1EC18B0800F1B77C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		82AA6B021EB3850200EBE95E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
 		82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpIntroViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				4649752B1EAF2A64005CFE24 /* DetailsViewController.swift */,
 				469F36051EBAF8A1002AF919 /* ReportIssueViewController.swift */,
 				82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */,
+				46DC16AE1EC18B0800F1B77C /* MapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */,
 				464975131EAF2375005CFE24 /* AppDelegate.swift in Sources */,
 				4649752C1EAF2A64005CFE24 /* DetailsViewController.swift in Sources */,
+				46DC16AF1EC18B0800F1B77C /* MapViewController.swift in Sources */,
 				469F36091EBB16B4002AF919 /* Issue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
