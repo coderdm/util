@@ -15,10 +15,27 @@ class PowerOutageTableViewCell: UITableViewCell {
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblSubOutageType: UILabel!
     @IBOutlet weak var lblHeaderOutage: UILabel!
+    @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var lblReferenceNumberHeader: UILabel!
+    @IBOutlet weak var lblReferenceNumber: UILabel!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code        
+       
+        self.setupViews()
+    }
+    
+    func setupViews(){
+        
         self.lblHeaderDate.textColor = UIColor.utlSunflowerYellow
+        
+        
+        let path = UIBezierPath(roundedRect: self.headerImageView.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        self.headerImageView.layer.mask = maskLayer
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
