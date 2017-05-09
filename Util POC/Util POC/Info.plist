@@ -20,6 +20,23 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Used to pick images</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Used to load image</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location fetch</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>For fetching the address</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Used to pick from Photo Library</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Italic.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -34,22 +51,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location fetch</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>For fetching the address</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Used to load image</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Used to pick images</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Roboto-Bold.ttf</string>
-		<string>Roboto-Light.ttf</string>
-		<string>Roboto-Medium.ttf</string>
-		<string>Roboto-Italic.ttf</string>
-	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Used to pick from Photo Library</string>
 </dict>
 </plist>
