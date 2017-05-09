@@ -1,5 +1,5 @@
 //
-//  signUpAddressViewController.swift
+//  SignUpPasswordViewController.swift
 //  Util POC
 //
 //  Created by M, Dileep (US - Bengaluru) on 5/9/17.
@@ -8,39 +8,32 @@
 
 import UIKit
 
-class SignUpAddressViewController: UIViewController {
-    
+class SignUpPasswordViewController: UIViewController {
+
     // IBOutlets
     @IBOutlet weak var contentScrollView: UIScrollView!
-    @IBOutlet weak var pipeImageView: UIImageView!
-    @IBOutlet weak var contactDetailsLabel: UILabel!
-    @IBOutlet weak var phoneNumberField: UITextField!
-    @IBOutlet weak var emailAddressField: UITextField!
-    @IBOutlet weak var resAddressLabel: UILabel!
-    @IBOutlet weak var addressField: UITextField!
-    @IBOutlet weak var pincodeField: UITextField!
-    @IBOutlet weak var cityField: UITextField!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var elecImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var footerView: UIView!
     
-    
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        footerView.backgroundColor = UIColor.utlSlate
+        passwordField.useUnderline()
+        confirmPasswordField.useUnderline()
         backButton.tintColor = UIColor.utlSunflowerYellow
         nextButton.tintColor = UIColor.utlSunflowerYellow
         pageControl.tintColor = UIColor.utlSunflowerYellow
-        phoneNumberField.useUnderline()
-        emailAddressField.useUnderline()
-        addressField.useUnderline()
-        pincodeField.useUnderline()
-        cityField.useUnderline()
+        footerView.backgroundColor = UIColor.utlSlate
+        
     }
-
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -55,14 +48,15 @@ class SignUpAddressViewController: UIViewController {
     }
     
 
-    // MARK: - IBActions
-  
+    // MARK: - IBAction
+    
     @IBAction func backAction(_ sender: Any) {
-        let _ = navigationController?.popViewController(animated: true)
+       let _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func nextAction(_ sender: Any) {
-        
+        navigationController!.isNavigationBarHidden = false
+        let _ = navigationController?.popToRootViewController(animated: false)
     }
     
     // MARK: - Keyboard Hide/Show
@@ -79,11 +73,11 @@ class SignUpAddressViewController: UIViewController {
         contentScrollView.contentInset = UIEdgeInsets.zero
         contentScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
-
+    
 }
 
 // MARK: - UITextFieldDelegate
-extension SignUpAddressViewController: UITextFieldDelegate {
+extension SignUpPasswordViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
