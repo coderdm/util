@@ -1,41 +1,45 @@
 //
-//  SignUpIntroViewController.swift
+//  signUpPersonalDetailsViewController.swift
 //  Util POC
 //
-//  Created by M, Dileep (US - Bengaluru) on 5/8/17.
+//  Created by M, Dileep (US - Bengaluru) on 5/9/17.
 //  Copyright © 2017 Sridhar, Swaroop (US - Bengaluru). All rights reserved.
 //
 
 import UIKit
 
-class SignUpIntroViewController: UIViewController {
+class signUpPersonalDetailsViewController: UIViewController {
     
+    // IBOutlets
     
-    // IBoutlets
-    @IBOutlet weak var footerView: UIView!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var accountNumberField: UITextField!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var footerView: UIView!
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var dobField: UITextField!
     @IBOutlet weak var contentScrollView: UIScrollView!
-    @IBOutlet weak var ssnTextField: UITextField!
+    @IBOutlet weak var inputStackView: UIStackView!
     
+    
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         footerView.backgroundColor = UIColor.utlSlate
-        cancelButton.tintColor = UIColor.utlSunflowerYellow
+        pageControl.tintColor = UIColor.utlSunflowerYellow
+        backButton.tintColor = UIColor.utlSunflowerYellow
         nextButton.tintColor = UIColor.utlSunflowerYellow
-        contentLabel.font = UIFont.italicSystemFont(ofSize: 12)
-        contentLabel.textColor = UIColor.utlWarmGrey
-        accountNumberField.useUnderline()
-        ssnTextField.useUnderline()
+        firstNameField.useUnderline()
+        lastNameField.useUnderline()
+        dobField.useUnderline()
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.navigationController!.isNavigationBarHidden = true
@@ -43,16 +47,19 @@ class SignUpIntroViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-    
-    // MARK: - IBActions
-    
-    @IBAction func cancelButtonAction(_ sender: Any) {
-       let _ =  navigationController?.popToRootViewController(animated: true)
+
+    // MARK: - IBAction
+
+    @IBAction func backButtonAction(_ sender: Any) {
+        let _ = navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func nextButtonAction(_ sender: Any) {
+    }
+    
     
     // MARK: - Keyboard Hide/Show
     func keyboardWillShow(_ notification: Notification) {
@@ -64,15 +71,15 @@ class SignUpIntroViewController: UIViewController {
         }
     }
     func keyboardWillHide(_ notification: Notification) {
-            contentScrollView.contentInset = UIEdgeInsets.zero
-            contentScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        contentScrollView.contentInset = UIEdgeInsets.zero
+        contentScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
-
+    
 }
 
 // MARK: - UITextFieldDelegate
-extension SignUpIntroViewController: UITextFieldDelegate {
-     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+extension signUpPersonalDetailsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

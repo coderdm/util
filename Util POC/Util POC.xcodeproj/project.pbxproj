@@ -22,10 +22,11 @@
 		469F36061EBAF8A1002AF919 /* ReportIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F36051EBAF8A1002AF919 /* ReportIssueViewController.swift */; };
 		469F36091EBB16B4002AF919 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F36081EBB16B4002AF919 /* Issue.swift */; };
 		469F360B1EBB2B70002AF919 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F360A1EBB2B70002AF919 /* UIView.swift */; };
-		8256A0BF1EC18975007A22EB /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256A0BE1EC18975007A22EB /* UITextField.swift */; };
 		46DC16AF1EC18B0800F1B77C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DC16AE1EC18B0800F1B77C /* MapViewController.swift */; };
+		8256A0BF1EC18975007A22EB /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256A0BE1EC18975007A22EB /* UITextField.swift */; };
 		82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B021EB3850200EBE95E /* UIColor.swift */; };
 		82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */; };
+		82DCF75A1EC20540009E7055 /* signUpPersonalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCF7591EC20540009E7055 /* signUpPersonalDetailsViewController.swift */; };
 		82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */; };
 		82E03A791EC0ED8C000DB75F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E03A781EC0ED8C000DB75F /* SignUp.storyboard */; };
 		9078565C1EC198430024222B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564A1EC198430024222B /* Roboto-Black.ttf */; };
@@ -66,10 +67,11 @@
 		469F36051EBAF8A1002AF919 /* ReportIssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportIssueViewController.swift; sourceTree = "<group>"; };
 		469F36081EBB16B4002AF919 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		469F360A1EBB2B70002AF919 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		8256A0BE1EC18975007A22EB /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		46DC16AE1EC18B0800F1B77C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8256A0BE1EC18975007A22EB /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		82AA6B021EB3850200EBE95E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
+		82DCF7591EC20540009E7055 /* signUpPersonalDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpPersonalDetailsViewController.swift; sourceTree = "<group>"; };
 		82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpIntroViewController.swift; sourceTree = "<group>"; };
 		82E03A781EC0ED8C000DB75F /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		9078564A1EC198430024222B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				4649752B1EAF2A64005CFE24 /* DetailsViewController.swift */,
 				469F36051EBAF8A1002AF919 /* ReportIssueViewController.swift */,
 				82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */,
+				82DCF7591EC20540009E7055 /* signUpPersonalDetailsViewController.swift */,
 				46DC16AE1EC18B0800F1B77C /* MapViewController.swift */,
 			);
 			name = Controllers;
@@ -327,6 +330,7 @@
 				464975261EAF279C005CFE24 /* TabBarViewController.swift in Sources */,
 				82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */,
 				8256A0BF1EC18975007A22EB /* UITextField.swift in Sources */,
+				82DCF75A1EC20540009E7055 /* signUpPersonalDetailsViewController.swift in Sources */,
 				464975131EAF2375005CFE24 /* AppDelegate.swift in Sources */,
 				4649752C1EAF2A64005CFE24 /* DetailsViewController.swift in Sources */,
 				46DC16AF1EC18B0800F1B77C /* MapViewController.swift in Sources */,
