@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -152,6 +152,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="976.79999999999995" y="792.95352323838085"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="UQb-QQ-BLA">
+            <objects>
+                <viewController id="mss-d4-Lh6" customClass="MapViewController" customModule="Util_POC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c5z-hh-1vO"/>
+                        <viewControllerLayoutGuide type="bottom" id="6xz-sR-rTv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YEh-yc-Qpl">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mXY-9Y-1la">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mss-d4-Lh6" id="oXy-yx-EJP"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mXY-9Y-1la" firstAttribute="top" secondItem="c5z-hh-1vO" secondAttribute="bottom" id="DUh-0j-8rz"/>
+                            <constraint firstItem="mXY-9Y-1la" firstAttribute="bottom" secondItem="6xz-sR-rTv" secondAttribute="top" id="Lwi-oS-KqA"/>
+                            <constraint firstAttribute="trailing" secondItem="mXY-9Y-1la" secondAttribute="trailing" id="U0j-H7-Gzh"/>
+                            <constraint firstItem="mXY-9Y-1la" firstAttribute="leading" secondItem="YEh-yc-Qpl" secondAttribute="leading" id="rep-jF-kEg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapview" destination="mXY-9Y-1la" id="7Sd-CI-3Dd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUP-Vd-dhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3781.5999999999999" y="776.76161919040487"/>
         </scene>
         <!--COMPLAINTS-->
         <scene sceneID="JN7-ou-kr7">
@@ -460,7 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xg3-T5-pyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3716" y="1178"/>
+            <point key="canvasLocation" x="3833" y="1548"/>
         </scene>
         <!--REPORT AN ISSUE-->
         <scene sceneID="ddG-cx-kNt">
@@ -637,6 +672,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="btnReportIssue" destination="9Y1-LT-0nl" id="iIz-08-QlA"/>
+                        <segue destination="mss-d4-Lh6" kind="show" identifier="showMapView" id="DXe-5T-uFC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c9d-HD-R18" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -662,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKo-Dl-k9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="1850"/>
+            <point key="canvasLocation" x="3783" y="2521"/>
         </scene>
         <!--RECENT BILLS-->
         <scene sceneID="V6V-W3-TCr">
@@ -677,7 +713,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hXf-3Y-fjf" id="PS2-Gz-hzP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3275 NW 24th Street Rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNh-On-HzY">
@@ -710,7 +746,7 @@
                                 <rect key="frame" x="0.0" y="84" width="375" height="260"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rFl-3K-nNy" id="BNo-sP-zTl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkA-Cn-ZPe">
@@ -838,6 +874,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZDX-Aa-dq3">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdL-qG-xRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aZe-YR-8sg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2fV-ZV-dXi">
@@ -849,7 +886,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9qd-aK-Y2d"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bdL-qG-xRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="792.95352323838085"/>
         </scene>
