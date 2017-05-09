@@ -30,8 +30,6 @@ class PowerOutageTableViewCell: UITableViewCell {
     func setupViews(){
         
         self.lblHeaderDate.textColor = UIColor.utlSunflowerYellow
-        //self.lblReferenceNumber.font = UIFont(name: "Roboto-Bold.ttf", size: 14)
-        self.lblAddress.font = UIFont(name: "Roboto-Bold.ttf", size: 14)
         
         
         let path = UIBezierPath(roundedRect: self.headerImageView.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 9.0, height: 9.0))

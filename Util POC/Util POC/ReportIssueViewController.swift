@@ -11,8 +11,12 @@ import UIKit
 class ReportIssueViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @IBOutlet weak var searchViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var issuesTableView: UITableView!
     @IBOutlet weak var btnReportIssue: UIButton!
+    
+    let searchViewHeightConstantExtended = 52.0
+    let searchViewHeightConstantCollapsed = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,13 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
             appDelegate.issue.append(issue)
         }
     
-
+        self.setupViews()
+    }
+    
+    func setupViews(){
+        self.btnReportIssue.layer.borderColor = UIColor.red.cgColor
+        self.btnReportIssue.layer.borderWidth = 1.0
+        self.btnReportIssue.layer.cornerRadius = 15.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,10 +51,8 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
         self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
     }
     
-    @IBAction func btnReportIssueTapped(_ sender: Any) {
-        
-    }
     
+    // MARK: - TableView methods
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
@@ -88,18 +96,29 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Roboto-Italic", size: 11)
-        header.textLabel?.textColor = UIColor.lightGray
-        view.tintColor = UIColor.init(colorLiteralRed: 238/255, green: 238/255, blue: 240/255, alpha: 1.0)
+        header.textLabel?.font = UIFont(name: "Roboto-Italic", size: 13)
+        header.textLabel?.textColor = UIColor.init(colorLiteralRed: 72.0/225.0, green: 78.0/225.0, blue: 99.0/225.0, alpha: 1.0)
+        view.tintColor = UIColor.white
         
         if section == 0 {
-            header.textLabel?.text = "This Week"
+            header.textLabel?.text = "     This Week"
         }else {
-            header.textLabel?.text = "This Month"
+            header.textLabel?.text = "     This Month"
         }
+    }
+    
+    // MARK: - Action methods
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        self.searchViewHeightConstraint.constant = CGFloat(searchViewHeightConstantExtended)
+    }
+    
+    @IBAction func btnReportIssueTapped(_ sender: Any) {
         
     }
     
+    @IBAction func searchViewCancelButtonTapped(_ sender: Any) {
+        self.searchViewHeightConstraint.constant = CGFloat(searchViewHeightConstantCollapsed)
+    }
     /*
     // MARK: - Navigation
 
