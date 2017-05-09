@@ -28,6 +28,7 @@
 		82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */; };
 		82DCF75A1EC20540009E7055 /* SignUpPersonalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCF7591EC20540009E7055 /* SignUpPersonalDetailsViewController.swift */; };
 		82DCF75C1EC214E4009E7055 /* SignUpAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCF75B1EC214E4009E7055 /* SignUpAddressViewController.swift */; };
+		82DCF75E1EC23E45009E7055 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCF75D1EC23E45009E7055 /* SignUpPasswordViewController.swift */; };
 		82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */; };
 		82E03A791EC0ED8C000DB75F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E03A781EC0ED8C000DB75F /* SignUp.storyboard */; };
 		9078565C1EC198430024222B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564A1EC198430024222B /* Roboto-Black.ttf */; };
@@ -74,6 +75,7 @@
 		82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
 		82DCF7591EC20540009E7055 /* SignUpPersonalDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPersonalDetailsViewController.swift; sourceTree = "<group>"; };
 		82DCF75B1EC214E4009E7055 /* SignUpAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpAddressViewController.swift; sourceTree = "<group>"; };
+		82DCF75D1EC23E45009E7055 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpIntroViewController.swift; sourceTree = "<group>"; };
 		82E03A781EC0ED8C000DB75F /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		9078564A1EC198430024222B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */,
 				82DCF7591EC20540009E7055 /* SignUpPersonalDetailsViewController.swift */,
 				82DCF75B1EC214E4009E7055 /* SignUpAddressViewController.swift */,
+				82DCF75D1EC23E45009E7055 /* SignUpPasswordViewController.swift */,
 				46DC16AE1EC18B0800F1B77C /* MapViewController.swift */,
 			);
 			name = Controllers;
@@ -333,6 +336,7 @@
 				4649757B1EB1A635005CFE24 /* BillRowAddressTableViewCell.swift in Sources */,
 				464975261EAF279C005CFE24 /* TabBarViewController.swift in Sources */,
 				82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */,
+				82DCF75E1EC23E45009E7055 /* SignUpPasswordViewController.swift in Sources */,
 				8256A0BF1EC18975007A22EB /* UITextField.swift in Sources */,
 				82DCF75A1EC20540009E7055 /* SignUpPersonalDetailsViewController.swift in Sources */,
 				464975131EAF2375005CFE24 /* AppDelegate.swift in Sources */,

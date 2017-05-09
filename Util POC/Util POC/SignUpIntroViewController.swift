@@ -52,7 +52,7 @@ class SignUpIntroViewController: UIViewController {
     
     @IBAction func cancelButtonAction(_ sender: Any) {
         self.navigationController!.isNavigationBarHidden = false
-       let _ =  navigationController?.popToRootViewController(animated: true)
+       let _ =  navigationController?.popToRootViewController(animated: false)
     }
     
     // MARK: - Keyboard Hide/Show
