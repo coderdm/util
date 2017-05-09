@@ -40,6 +40,8 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     // Submit button
     @IBOutlet weak var submitButton: UIButton!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     let imagePicker = UIImagePickerController()
     var locationManager:CLLocationManager = CLLocationManager()
@@ -209,6 +211,27 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     }
     
     @IBAction func btnSubmitTapped(_ sender: Any) {
+        
+        if self.outageTextLabel.text == "Choose Outage Type" {
+            let alert = UIAlertController(title: "", message: "Please choose outage type", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return;
+        }
+        
+        if (self.lblAddressField.text?.isEmpty)! {
+            
+            let alert = UIAlertController(title: "", message: "Please provide the address", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
+                    
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return;
+            
+        }
+        
         let alert = UIAlertController(title: "Thank you", message: "Your complaint has been received", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
             
