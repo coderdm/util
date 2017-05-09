@@ -45,6 +45,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     
     let imagePicker = UIImagePickerController()
     var locationManager:CLLocationManager = CLLocationManager()
+    var mutableArrayContainingNumbers:[Int] = [Int]()
     
     // MARK: - Lifecycle
     
@@ -232,6 +233,10 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
             
         }
         
+        let issue = Issue(issueType: self.outageTextLabel.text!, dateReported: self.dateFormatMMDDYYYY(for: Date.init()), issueAddress: self.lblAddressField.text!, status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : String(self.randomNumber()))
+        
+        appDelegate.issue.insert(issue, at: 0)
+        
         let alert = UIAlertController(title: "Thank you", message: "Your complaint has been received", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
             
@@ -242,6 +247,29 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         self.imageViewPreview2.image = nil
         self.btnRemoveImagePreview2.isHidden = true
         self.checkCameraButtonStatus()
+    }
+    
+    // MARK: - Utils
+    func dateFormatMMDDYYYY(for date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = NSTimeZone(name: "GMT")! as TimeZone
+        return dateFormatter.string(from:date)
+    }
+    
+    func randomNumber() -> Int {
+        
+        let randomNumber = Int(arc4random())
+        if mutableArrayContainingNumbers.contains(Int(randomNumber)) {
+            self.randomNumber()
+            // call the method again and get a new object
+        }
+        else {
+            // end case, it doesn't contain it so you have a number you can use
+            mutableArrayContainingNumbers.append(Int(randomNumber))
+            return randomNumber
+        }
+        return randomNumber
     }
 }
 

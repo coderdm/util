@@ -11,9 +11,12 @@ import UIKit
 class ReportIssueViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var issuesTableView: UITableView!
     @IBOutlet weak var btnReportIssue: UIButton!
+    
+    var filteredArray: [Issue] = [Issue]()
     
     let searchViewHeightConstantExtended = 52.0
     let searchViewHeightConstantCollapsed = 1.0
@@ -24,25 +27,22 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
     
         if (appDelegate.issue.isEmpty) {
-            let issue = Issue(issueType: "Streetlight Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Miami", status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : "823456")
-            appDelegate.issue.append(issue)
-            appDelegate.issue.append(issue)
-            appDelegate.issue.append(issue)
-            appDelegate.issue.append(issue)
-            appDelegate.issue.append(issue)
+            let issue1 = Issue(issueType: "Streetlight Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Miami", status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : "2356879627")
+            appDelegate.issue.append(issue1)
+            
+            let issue2 = Issue(issueType: "Power Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Miami", status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : "7625467892")
+            appDelegate.issue.append(issue2)
         }
+        
+        self.filteredArray = appDelegate.issue
     
         self.setupViews()
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(self.tap(gesture:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
-    func setupViews(){
-        self.btnReportIssue.layer.borderColor = UIColor.red.cgColor
-        self.btnReportIssue.layer.borderWidth = 1.0
-        self.btnReportIssue.layer.cornerRadius = 15.0
-        
-        self.searchViewHeightConstraint.constant = CGFloat(searchViewHeightConstantCollapsed)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,11 +60,27 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
         )
         
         navigationController?.visibleViewController?.navigationItem.rightBarButtonItem = rightButtonItem
+        
+        self.resetTableDataAndReload()
+    }
+
+    
+    //MARK: - View methods
+    
+    func resetTableDataAndReload(){
+        self.filteredArray = appDelegate.issue
+        self.issuesTableView.reloadData()
     }
     
-    func rightButtonAction(sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "showMapView", sender: self)
+    func setupViews(){
+        self.btnReportIssue.layer.borderColor = UIColor.red.cgColor
+        self.btnReportIssue.layer.borderWidth = 1.0
+        self.btnReportIssue.layer.cornerRadius = 15.0
+        
+        self.searchViewHeightConstraint.constant = CGFloat(searchViewHeightConstantCollapsed)
+        
     }
+
     
     
     // MARK: - TableView methods
@@ -75,11 +91,11 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (appDelegate.issue.count)
+        return (self.filteredArray.count)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PowerOutageCell") as? PowerOutageTableViewCell {
-            let issueObj = appDelegate.issue[indexPath.row]
+            let issueObj = self.filteredArray[indexPath.row]
             cell.lblHeaderOutage.text = issueObj.issueType
             cell.lblHeaderDate.text = issueObj.dateReported
             cell.lblReferenceNumber.text = issueObj.referenceNumber;
@@ -133,7 +149,37 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
     
     @IBAction func searchViewCancelButtonTapped(_ sender: Any) {
         self.searchViewHeightConstraint.constant = CGFloat(searchViewHeightConstantCollapsed)
+        self.searchTextField.resignFirstResponder()
+        self.resetTableDataAndReload()
     }
+    
+    func rightButtonAction(sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "showMapView", sender: self)
+    }
+
+    
+   //MARK: - TextField Methods
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        self.filterContent(forSearchText: sender.text!, scope: "")
+    }
+    
+    //MARK: - Utility Methods
+    func filterContent(forSearchText searchText: String, scope: String) {
+        if searchText.isEmpty{
+            self.resetTableDataAndReload()
+        }else{
+            self.filteredArray = appDelegate.issue.filter { NSPredicate(format: "self.referenceNumber beginswith[c] %@ OR self.referenceNumber beginswith[cd] %@", searchText).evaluate(with: $0) }
+            self.issuesTableView.reloadData()
+        }
+        
+        
+    }
+
+    //MARK: - tap gesture Methods
+    func tap(gesture: UITapGestureRecognizer) {
+        self.searchTextField.resignFirstResponder()
+    }
+    
     /*
     // MARK: - Navigation
 
