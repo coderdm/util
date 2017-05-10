@@ -34,15 +34,15 @@ class RecentBillsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.expandedArray[section] == true ? 1 : 0
+        return self.expandedArray[section] == true ? 3 : 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBillRowAddress")
-        cell?.tag = section
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBillRowAddress") as! BillRowAddressTableViewCell
+        cell.tag = section
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-        cell?.addGestureRecognizer(tapGesture)
-        
+        cell.addGestureRecognizer(tapGesture)
+        cell.expandableImage.image =  self.expandedArray[cell.tag] == true ? UIImage(named: "minusButton") : UIImage(named: "plusButton")
         return cell
     }
     
@@ -52,19 +52,32 @@ class RecentBillsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBillDetails", for: indexPath)
+        var cell:UITableViewCell
+        
+        if indexPath.row == 0 || indexPath.row == 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "CellBillDetails", for: indexPath)
+        }else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "RecentBillsTotalAmount", for: indexPath)
+        }
         return cell
     }
  
 
     override public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 364
+        if indexPath.row == 0 || indexPath.row == 1{
+            return 364
+        }else{
+            return 163
+        }
+        
     }
     
     func handleTap(sender: UITapGestureRecognizer) {
         self.expandedArray[sender.view!.tag] =  self.expandedArray[sender.view!.tag] == true ? false : true
         if let cellView = sender.view as? BillRowAddressTableViewCell {
-            cellView.lblExpand.text =  self.expandedArray[sender.view!.tag] == true ? "-" : "+"
+            
+            //cellView.lblExpand.text =  self.expandedArray[sender.view!.tag] == true ? "-" : "+"
+           // cellView.expandableImage.image =  self.expandedArray[sender.view!.tag] == true ? UIImage(named: "minusButton") : UIImage(named: "plusButton")
         }
         self.tableView.reloadData()
         self.tableView.reloadSectionIndexTitles()
