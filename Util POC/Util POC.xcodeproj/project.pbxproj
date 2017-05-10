@@ -23,6 +23,8 @@
 		469F36091EBB16B4002AF919 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F36081EBB16B4002AF919 /* Issue.swift */; };
 		469F360B1EBB2B70002AF919 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469F360A1EBB2B70002AF919 /* UIView.swift */; };
 		46DC16AF1EC18B0800F1B77C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DC16AE1EC18B0800F1B77C /* MapViewController.swift */; };
+		823C81381EC2EF5900A39A5E /* Generic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823C81371EC2EF5900A39A5E /* Generic.storyboard */; };
+		823C813A1EC2F01900A39A5E /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C81391EC2F01900A39A5E /* CustomAlertViewController.swift */; };
 		8256A0BF1EC18975007A22EB /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256A0BE1EC18975007A22EB /* UITextField.swift */; };
 		82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B021EB3850200EBE95E /* UIColor.swift */; };
 		82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */; };
@@ -70,6 +72,8 @@
 		469F36081EBB16B4002AF919 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		469F360A1EBB2B70002AF919 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		46DC16AE1EC18B0800F1B77C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		823C81371EC2EF5900A39A5E /* Generic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Generic.storyboard; sourceTree = "<group>"; };
+		823C81391EC2F01900A39A5E /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		8256A0BE1EC18975007A22EB /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		82AA6B021EB3850200EBE95E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		82AA6B041EB38DF000EBE95E /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				464975121EAF2375005CFE24 /* AppDelegate.swift */,
 				464975161EAF2375005CFE24 /* Main.storyboard */,
 				82E03A781EC0ED8C000DB75F /* SignUp.storyboard */,
+				823C81371EC2EF5900A39A5E /* Generic.storyboard */,
 				464975191EAF2375005CFE24 /* Assets.xcassets */,
 				4649751B1EAF2375005CFE24 /* LaunchScreen.storyboard */,
 				4649751E1EAF2375005CFE24 /* Info.plist */,
@@ -159,6 +164,7 @@
 				82DCF75B1EC214E4009E7055 /* SignUpAddressViewController.swift */,
 				82DCF75D1EC23E45009E7055 /* SignUpPasswordViewController.swift */,
 				46DC16AE1EC18B0800F1B77C /* MapViewController.swift */,
+				823C81391EC2F01900A39A5E /* CustomAlertViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				4649751D1EAF2375005CFE24 /* LaunchScreen.storyboard in Resources */,
 				4649751A1EAF2375005CFE24 /* Assets.xcassets in Resources */,
 				82E03A791EC0ED8C000DB75F /* SignUp.storyboard in Resources */,
+				823C81381EC2EF5900A39A5E /* Generic.storyboard in Resources */,
 				907856691EC198430024222B /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				9078566A1EC198430024222B /* RobotoCondensed-Italic.ttf in Resources */,
 				907856621EC198430024222B /* Roboto-LightItalic.ttf in Resources */,
@@ -338,6 +345,7 @@
 				82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */,
 				82DCF75E1EC23E45009E7055 /* SignUpPasswordViewController.swift in Sources */,
 				8256A0BF1EC18975007A22EB /* UITextField.swift in Sources */,
+				823C813A1EC2F01900A39A5E /* CustomAlertViewController.swift in Sources */,
 				82DCF75A1EC20540009E7055 /* SignUpPersonalDetailsViewController.swift in Sources */,
 				464975131EAF2375005CFE24 /* AppDelegate.swift in Sources */,
 				4649752C1EAF2A64005CFE24 /* DetailsViewController.swift in Sources */,

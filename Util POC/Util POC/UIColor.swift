@@ -25,4 +25,8 @@ extension UIColor {
     class var utlRedPink: UIColor {
         return UIColor(red: 250.0 / 255.0, green: 50.0 / 255.0, blue: 82.0 / 255.0, alpha: 1.0)
     }
+    
+    class var utlWatermelon: UIColor {
+        return UIColor(red: 250.0 / 255.0, green: 62.0 / 255.0, blue: 73.0 / 255.0, alpha: 1.0)
+    }
 }

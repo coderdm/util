@@ -21,6 +21,9 @@ class SignUpPasswordViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var footerView: UIView!
     
+    // To check if alert is displayed
+    var isAlertDisplayed = false
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -47,20 +50,60 @@ class SignUpPasswordViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    // MARK: - Utils
+    private func showServiceErrorAlert(imageName: String, message: String, buttonTitle: String, success: Bool) {
+        if !isAlertDisplayed {
+            let storyboard = UIStoryboard.init(name: "Generic", bundle: nil)
+            let alertController  = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+            addChildViewController(alertController)
+            isAlertDisplayed = true
+            view.addView(view: alertController.view, topConstraint: NSNumber.init(value: 0), bottomConstraint: NSNumber.init(value: 0), leadingConstraint: NSNumber.init(value: 0), trailingConstraint: NSNumber.init(value: 0))
+            alertController.okActionBlock = { [weak self] in
+                guard let strongSelf = self else { return}
+                strongSelf.isAlertDisplayed = false
+                if success {
+                    strongSelf.navigationController!.isNavigationBarHidden = false
+                    let _ = strongSelf.navigationController?.popToRootViewController(animated: false)
+                }
+            }
+            let errorImage = UIImage(named: imageName) ?? UIImage()
+            alertController.setValue(alertConImage: errorImage, alertMessage: message, buttonTitle: buttonTitle)
 
+        }
+    }
+    
+    func register() {
+        var a = false
+        var b = false
+        
+        if passwordField.text == confirmPasswordField.text {
+            a = true
+        } else {
+            showServiceErrorAlert(imageName: "safetyCautionRed", message: "Your passwords do not match", buttonTitle: "Ok", success: false)
+        }
+        
+        if(passwordField.text == "" || confirmPasswordField.text == "") {
+            showServiceErrorAlert(imageName: "safetyCautionRed", message: "Your password fields cannot be empty", buttonTitle: "Ok", success: false)
+        } else {
+            b = true
+        }
+        
+        if a == true && b == true {
+            showServiceErrorAlert(imageName: "success", message: "You have successfully registered your account!", buttonTitle: "Ok", success: false)
+        }
+    }
+    
+    
     // MARK: - IBAction
     
     @IBAction func backAction(_ sender: Any) {
        let _ = navigationController?.popViewController(animated: true)
     }
-    
     @IBAction func nextAction(_ sender: Any) {
-        navigationController!.isNavigationBarHidden = false
-        let _ = navigationController?.popToRootViewController(animated: false)
+        register()
     }
     
     // MARK: - Keyboard Hide/Show
-    
     func keyboardWillShow(_ notification: Notification) {
         let info:  [AnyHashable: Any]? = notification.userInfo!
         if let keyboardSize = (info?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
