@@ -45,4 +45,14 @@ extension UIView {
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius
     }
+    
+    
+    func addView(view: UIView, topConstraint: NSNumber, bottomConstraint: NSNumber, leadingConstraint: NSNumber, trailingConstraint: NSNumber) {
+        self.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-leadingConstraint-[view]-trailingConstraint-|", options: [], metrics: ["leadingConstraint": leadingConstraint, "trailingConstraint": trailingConstraint], views: ["view": view])
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-topConstraint-[view]-bottomConstraint-|", options: [], metrics: ["topConstraint": topConstraint, "bottomConstraint": bottomConstraint], views: ["view": view])
+        self.addConstraints(horizontalConstraints)
+        self.addConstraints(verticalConstraints)
+    }
 }
