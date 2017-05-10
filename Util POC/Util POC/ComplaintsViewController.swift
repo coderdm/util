@@ -40,6 +40,9 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     // Submit button
     @IBOutlet weak var submitButton: UIButton!
     
+    // To check if alert is displayed
+    var isAlertDisplayed = false
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     
@@ -89,6 +92,26 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         }
         else {
             self.btnOpenCamera.isHidden = false
+        }
+    }
+
+    private func showAlert(imageName: String, message: String, buttonTitle: String, completion: (() -> ())?) {
+        if !isAlertDisplayed {
+            let storyboard = UIStoryboard.init(name: "Generic", bundle: nil)
+            let alertController  = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+            addChildViewController(alertController)
+            isAlertDisplayed = true
+            view.addView(view: alertController.view, topConstraint: NSNumber.init(value: 0), bottomConstraint: NSNumber.init(value: 0), leadingConstraint: NSNumber.init(value: 0), trailingConstraint: NSNumber.init(value: 0))
+            alertController.okActionBlock = { [weak self] in
+                guard let strongSelf = self else { return}
+                strongSelf.isAlertDisplayed = false
+                if let completion = completion {
+                    completion()
+                }
+            }
+            let errorImage = UIImage(named: imageName) ?? UIImage()
+            alertController.setValue(alertConImage: errorImage, alertMessage: message, buttonTitle: buttonTitle)
+            
         }
     }
 
@@ -214,34 +237,20 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     @IBAction func btnSubmitTapped(_ sender: Any) {
         
         if self.outageTextLabel.text == "Choose Outage Type" {
-            let alert = UIAlertController(title: "", message: "Please choose outage type", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
-                
-            }))
-            self.present(alert, animated: true, completion: nil)
-            return;
+            showAlert(imageName: "safetyCautionRed", message: "Please choose outage type", buttonTitle: "Ok", completion: nil)
+            return
         }
-        
         if (self.lblAddressField.text?.isEmpty)! {
-            
-            let alert = UIAlertController(title: "", message: "Please provide the address", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
-                    
-            }))
-            self.present(alert, animated: true, completion: nil)
-            return;
+            showAlert(imageName: "safetyCautionRed", message: "Please provide the address", buttonTitle: "Ok", completion: nil)
+            return
             
         }
-        
-        let issue = Issue(issueType: self.outageTextLabel.text!, dateReported: self.dateFormatMMDDYYYY(for: Date.init()), issueAddress: self.lblAddressField.text!, status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : String(self.randomNumber()))
+        let referenecNumber = String(self.randomNumber())
+        let issue = Issue(issueType: self.outageTextLabel.text!, dateReported: self.dateFormatMMDDYYYY(for: Date.init()), issueAddress: self.lblAddressField.text!, status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : referenecNumber)
         
         appDelegate.issue.insert(issue, at: 0)
-        
-        let alert = UIAlertController(title: "Thank you", message: "Your complaint has been received", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (action) in
-            
-        }))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(imageName: "mail-icon", message: "Thank you! your notification has been received. Your reference number is \(referenecNumber)", buttonTitle: "Ok",completion: {
+        })
     }
     @IBAction func btnRemoveImagePreview3(_ sender: Any) {
         self.imageViewPreview2.image = nil
