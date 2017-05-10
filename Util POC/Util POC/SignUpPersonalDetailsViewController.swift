@@ -51,7 +51,14 @@ class SignUpPersonalDetailsViewController: UIViewController {
     // MARK: - IBAction
 
     @IBAction func backButtonAction(_ sender: Any) {
-        let _ = navigationController?.popViewController(animated: true)
+        if let controllers = navigationController?.viewControllers  {
+            for controller in controllers {
+                if ( controller is SignUpIntroViewController) {
+                    let _ = navigationController?.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+        }
     }
     
     @IBAction func nextButtonAction(_ sender: Any) {
