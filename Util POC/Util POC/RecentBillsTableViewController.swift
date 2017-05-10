@@ -16,6 +16,7 @@ class RecentBillsTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = .utlSunflowerYellow
         navigationController?.navigationBar.isTranslucent = true
+        self.tableView.tableFooterView = UIView(frame: .zero)
 
     }
     
@@ -57,7 +58,7 @@ class RecentBillsTableViewController: UITableViewController {
  
 
     override public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 260
+        return 364
     }
     
     func handleTap(sender: UITapGestureRecognizer) {
