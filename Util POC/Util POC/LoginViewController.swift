@@ -17,6 +17,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imagePayForAnotherSelected: UIImageView!
     @IBOutlet weak var imageLoginSelected: UIImageView!
     
+    var loginTabSelected : Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePayForAnotherSelected.isHidden = true;
@@ -44,6 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func PayForAnotherTabSelected(_ sender: Any) {
+        self.loginTabSelected = false
         self.imagePayForAnotherSelected.isHidden = false
         self.imageLoginSelected.isHidden = true
         self.btnPayForAnother.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
@@ -52,11 +55,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func LoginTabSelected(_ sender: Any) {
+        self.loginTabSelected = true
         self.imagePayForAnotherSelected.isHidden = true
         self.imageLoginSelected.isHidden = false
         self.btnLogin.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         self.btnPayForAnother.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         self.txtFieldPassword.isHidden = false
+    }
+    
+    @IBAction func proceedButtonTapped(_ sender: UIButton) {
+        
+        if self.loginTabSelected {
+            self.performSegue(withIdentifier: "segueToTabbarController", sender: self)
+        }else{
+            self.performSegue(withIdentifier: "segueToPayForAnother", sender: self)
+        }
+        
     }
     
     
