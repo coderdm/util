@@ -13,6 +13,11 @@ public typealias complaintFormat = (coordinate: CLLocationCoordinate2D, messageT
 class MapViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @IBOutlet weak var btnAttention: UIButton!
+    @IBOutlet weak var btnStretLight: UIButton!
+    @IBOutlet weak var btnPower: UIButton!
+    @IBOutlet weak var initialFilterView: UIView!
+    @IBOutlet weak var filterViewOptions: UIView!
     var locationManager:CLLocationManager = CLLocationManager()
     var coordinateArray:[complaintFormat] = [complaintFormat]()
 
@@ -37,6 +42,8 @@ class MapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        self.navigationController?.navigationBar.topItem?.title = "Issues around you"
+
     }
     
     func generateComplaintAnnotation(location:CLLocation){
@@ -77,6 +84,25 @@ class MapViewController: UIViewController {
         //self.mapview.showAnnotations(self.mapview.annotations, animated: true)
     }
     
+    func plotFilterAnnotation(filterType:String) {
+        self.mapview.removeAnnotations(self.mapview.annotations)
+        
+        for complaintFormat in self.coordinateArray {
+            if complaintFormat.messageType == filterType || filterType == "ALL"{
+                let annotation = MKPointAnnotation()
+                annotation.title = filterType
+                if filterType == "ALL" {
+                    annotation.title = complaintFormat.messageType
+                }
+                annotation.coordinate = CLLocationCoordinate2D(latitude: complaintFormat.coordinate.latitude, longitude: complaintFormat.coordinate.longitude)
+                mapview.addAnnotation(annotation)
+            }
+        }
+        self.zoomToFitMapAnnotations()
+        self.mapview.showAnnotations(self.mapview.annotations, animated: true)
+
+    }
+    
     func zoomToFitMapAnnotations() {
         guard self.mapview.annotations.count > 0 else {
             return
@@ -101,6 +127,70 @@ class MapViewController: UIViewController {
         region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.4
         region = self.mapview.regionThatFits(region)
         self.mapview.setRegion(region, animated: true)
+    }
+    
+
+    @IBAction func btnFilterTapped(_ sender: Any) {
+        self.initialFilterView.isHidden = true
+        self.filterViewOptions.isHidden = false
+    }
+    @IBAction func btnPowerOutageTapped(_ sender: Any) {
+        if self.btnPower.tag ==  0{
+            self.btnPower.setImage(UIImage(named: "powerRed"), for: UIControlState.normal)
+            self.btnPower.tag = 1
+            self.plotFilterAnnotation(filterType: "PowerOutage")
+            
+            self.btnAttention.setImage(UIImage(named: "safetyGray"), for: UIControlState.normal)
+            self.btnAttention.tag = 0
+            
+            self.btnStretLight.setImage(UIImage(named: "streetGray"), for: UIControlState.normal)
+            self.btnStretLight.tag = 0
+            
+        } else {
+            self.btnPower.setImage(UIImage(named: "powerGray"), for: UIControlState.normal)
+            self.btnPower.tag = 0
+            self.plotFilterAnnotation(filterType: "ALL")
+        }
+    }
+    
+    @IBAction func btnSafetyTapped(_ sender: Any) {
+        
+        if self.btnAttention.tag == 0 {
+            self.btnAttention.setImage(UIImage(named: "safetyCautionRed"), for: UIControlState.normal)
+            self.btnAttention.tag = 1
+            self.plotFilterAnnotation(filterType: "SafetyConcern")
+            
+            self.btnPower.setImage(UIImage(named: "powerGray"), for: UIControlState.normal)
+            self.btnPower.tag = 0
+            
+            self.btnStretLight.setImage(UIImage(named: "streetGray"), for: UIControlState.normal)
+            self.btnStretLight.tag = 0
+
+        } else {
+            self.btnAttention.setImage(UIImage(named: "safetyGray"), for: UIControlState.normal)
+            self.btnAttention.tag = 0
+            self.plotFilterAnnotation(filterType: "ALL")
+        }
+    }
+    
+    @IBAction func btnStreetLightTapped(_ sender: Any) {
+        
+        if self.btnStretLight.tag == 0 {
+            self.btnStretLight.setImage(UIImage(named: "streetRed"), for: UIControlState.normal)
+            self.btnStretLight.tag = 1
+            self.plotFilterAnnotation(filterType: "StreetlightOutage")
+            
+            self.btnPower.setImage(UIImage(named: "powerGray"), for: UIControlState.normal)
+            self.btnPower.tag = 0
+            
+            self.btnAttention.setImage(UIImage(named: "safetyGray"), for: UIControlState.normal)
+            self.btnAttention.tag = 0
+            
+        } else {
+            self.btnStretLight.setImage(UIImage(named: "streetGray"), for: UIControlState.normal)
+            self.btnStretLight.tag = 0
+            self.plotFilterAnnotation(filterType: "ALL")
+        }
     }
 }
 
@@ -133,8 +223,7 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         if !(annotation is MKPointAnnotation) {
             return nil
         }
-        
-        let reuseId = "annotation"
+        let reuseId = annotation.title! ?? "annotation"
         
         var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if anView == nil {
