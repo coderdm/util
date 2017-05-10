@@ -10,13 +10,18 @@ import UIKit
 
 class RecentBillsTableViewController: UITableViewController {
     var expandedArray:Array<Bool> = [false,false]
-    
+    var bills : [Bill] = [Bill]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = .utlSunflowerYellow
         navigationController?.navigationBar.isTranslucent = true
         self.tableView.tableFooterView = UIView(frame: .zero)
+        
+        let billOne = Bill(billType: "Electricity Services",totalConsumption: "634 Kwh",billAmount: "$63",year:"May 2017")
+        let billTwo = Bill(billType: "Gas Services",totalConsumption: "1.576 Thm",billAmount: "$107", year:"April 2017")
+        bills.append(billOne)
+        bills.append(billTwo)
 
     }
     
@@ -34,7 +39,7 @@ class RecentBillsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.expandedArray[section] == true ? 3 : 0
+        return self.expandedArray[section] == true ? bills.count + 1 : 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -43,6 +48,13 @@ class RecentBillsTableViewController: UITableViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         cell.addGestureRecognizer(tapGesture)
         cell.expandableImage.image =  self.expandedArray[cell.tag] == true ? UIImage(named: "minusButton") : UIImage(named: "plusButton")
+        
+        if section == 0 {
+            cell.addressLabel.text = "3275 NW 24th Street Rd"
+        }else{
+            cell.addressLabel.text = "7865 SW 8th Street Rd"
+        }
+        
         return cell
     }
     
@@ -52,14 +64,18 @@ class RecentBillsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell:UITableViewCell
-        
         if indexPath.row == 0 || indexPath.row == 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellBillDetails", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellBillDetails", for: indexPath) as! BillTableViewCell
+            cell.serviceTypeLabel.text = bills[indexPath.row].billType
+            cell.billPeriodLabel.text = bills[indexPath.row].year
+            cell.consumptionLabel.text = bills[indexPath.row].totalConsumption
+            cell.billAmountLabel.text = bills[indexPath.row].billAmount
+            return cell
         }else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "RecentBillsTotalAmount", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentBillsTotalAmount", for: indexPath)
+            return cell
         }
-        return cell
+        
     }
  
 
@@ -74,11 +90,11 @@ class RecentBillsTableViewController: UITableViewController {
     
     func handleTap(sender: UITapGestureRecognizer) {
         self.expandedArray[sender.view!.tag] =  self.expandedArray[sender.view!.tag] == true ? false : true
-        if let cellView = sender.view as? BillRowAddressTableViewCell {
+        //if let cellView = sender.view as? BillRowAddressTableViewCell {
             
             //cellView.lblExpand.text =  self.expandedArray[sender.view!.tag] == true ? "-" : "+"
            // cellView.expandableImage.image =  self.expandedArray[sender.view!.tag] == true ? UIImage(named: "minusButton") : UIImage(named: "plusButton")
-        }
+        //}
         self.tableView.reloadData()
         self.tableView.reloadSectionIndexTitles()
     }

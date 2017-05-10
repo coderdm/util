@@ -1163,10 +1163,11 @@ Miami FL</string>
                                     <constraint firstItem="7c0-0R-HSj" firstAttribute="centerY" secondItem="hXf-3Y-fjf" secondAttribute="centerY" id="rAq-8i-3N3"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="addressLabel" destination="kNh-On-HzY" id="c7X-Li-C3J"/>
                                     <outlet property="expandableImage" destination="7c0-0R-HSj" id="iUm-lk-54Y"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellBillDetails" rowHeight="364" id="rFl-3K-nNy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellBillDetails" rowHeight="364" id="rFl-3K-nNy" customClass="BillTableViewCell" customModule="Util_POC" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="84" width="375" height="364"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rFl-3K-nNy" id="BNo-sP-zTl">
@@ -1243,9 +1244,9 @@ Miami FL</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="643Kwh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enr-Bt-uWD">
-                                                    <rect key="frame" x="216" y="119" width="80" height="24"/>
+                                                    <rect key="frame" x="216" y="119" width="103" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="cnO-SN-ul2"/>
+                                                        <constraint firstAttribute="width" constant="103" id="cnO-SN-ul2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                     <color key="textColor" red="1" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1317,6 +1318,12 @@ Miami FL</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.38039215686274508" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="billAmountLabel" destination="I0U-We-o5w" id="Fup-ee-DHW"/>
+                                    <outlet property="billPeriodLabel" destination="oGG-Jl-CHl" id="mo2-Qp-UVy"/>
+                                    <outlet property="consumptionLabel" destination="enr-Bt-uWD" id="i5y-e8-Ilj"/>
+                                    <outlet property="serviceTypeLabel" destination="iNc-zw-zHK" id="1Nr-gU-gec"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentBillsTotalAmount" rowHeight="163" id="ENV-Ve-hyp" customClass="RecentBillsTotalAmountTableViewCell" customModule="Util_POC" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="448" width="375" height="163"/>

@@ -32,6 +32,8 @@
 		82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */; };
 		82E03A791EC0ED8C000DB75F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E03A781EC0ED8C000DB75F /* SignUp.storyboard */; };
 		90093C111EC30FF80098EB1F /* RecentBillsTotalAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C101EC30FF80098EB1F /* RecentBillsTotalAmountTableViewCell.swift */; };
+		90093C131EC315190098EB1F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C121EC315190098EB1F /* Bill.swift */; };
+		90093C151EC31CB60098EB1F /* BillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C141EC31CB60098EB1F /* BillTableViewCell.swift */; };
 		9078565C1EC198430024222B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564A1EC198430024222B /* Roboto-Black.ttf */; };
 		9078565D1EC198430024222B /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564B1EC198430024222B /* Roboto-BlackItalic.ttf */; };
 		9078565E1EC198430024222B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564C1EC198430024222B /* Roboto-Bold.ttf */; };
@@ -80,6 +82,8 @@
 		82E03A761EC0EACA000DB75F /* SignUpIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpIntroViewController.swift; sourceTree = "<group>"; };
 		82E03A781EC0ED8C000DB75F /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		90093C101EC30FF80098EB1F /* RecentBillsTotalAmountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentBillsTotalAmountTableViewCell.swift; sourceTree = "<group>"; };
+		90093C121EC315190098EB1F /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		90093C141EC31CB60098EB1F /* BillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillTableViewCell.swift; sourceTree = "<group>"; };
 		9078564A1EC198430024222B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		9078564B1EC198430024222B /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		9078564C1EC198430024222B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				4649757A1EB1A635005CFE24 /* BillRowAddressTableViewCell.swift */,
 				469F36031EBAF753002AF919 /* PowerOutageTableViewCell.swift */,
 				90093C101EC30FF80098EB1F /* RecentBillsTotalAmountTableViewCell.swift */,
+				90093C141EC31CB60098EB1F /* BillTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				469F36081EBB16B4002AF919 /* Issue.swift */,
+				90093C121EC315190098EB1F /* Bill.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -331,6 +337,8 @@
 				469F36041EBAF753002AF919 /* PowerOutageTableViewCell.swift in Sources */,
 				464975151EAF2375005CFE24 /* LoginViewController.swift in Sources */,
 				82DCF75C1EC214E4009E7055 /* SignUpAddressViewController.swift in Sources */,
+				90093C151EC31CB60098EB1F /* BillTableViewCell.swift in Sources */,
+				90093C131EC315190098EB1F /* Bill.swift in Sources */,
 				4649752A1EAF2A36005CFE24 /* ComplaintsViewController.swift in Sources */,
 				469F36061EBAF8A1002AF919 /* ReportIssueViewController.swift in Sources */,
 				90093C111EC30FF80098EB1F /* RecentBillsTotalAmountTableViewCell.swift in Sources */,
