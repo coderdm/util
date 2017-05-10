@@ -9,7 +9,8 @@
 import UIKit
 
 class PayForAnotherTableViewController: UITableViewController {
-
+    var bills : [Bill] = [Bill]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +19,17 @@ class PayForAnotherTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let billOne = Bill(billType: "Electricity Services",totalConsumption: "634 Kwh",billAmount: "$63",year:"May 2017")
+        let billTwo = Bill(billType: "Gas Services",totalConsumption: "1.576 Thm",billAmount: "$107", year:"April 2017")
+        bills.append(billOne)
+        bills.append(billTwo)
+        
+        //Setting the logo of UTIL to the navigation bar
+        let logo = UIImage(named: "nav-logo")
+        let imageView = UIImageView(image:logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +41,41 @@ class PayForAnotherTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return bills.count + 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-
-        return cell
+        if indexPath.row == 0 || indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellBillDetails", for: indexPath) as! BillTableViewCell
+            cell.serviceTypeLabel.text = bills[indexPath.row].billType
+            cell.billPeriodLabel.text = bills[indexPath.row].year
+            cell.consumptionLabel.text = bills[indexPath.row].totalConsumption
+            cell.billAmountLabel.text = bills[indexPath.row].billAmount
+            return cell
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentBillsTotalAmount", for: indexPath)
+            return cell
+        }
     }
-    */
+    
+    override public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 || indexPath.row == 1{
+            return 432
+            
+        }else{
+            return 163
+        }
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
