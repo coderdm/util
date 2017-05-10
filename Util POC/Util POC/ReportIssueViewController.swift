@@ -63,6 +63,10 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
         
         self.resetTableDataAndReload()
     }
+    
+    override func viewWillDisappear(_ animated: Bool){
+        navigationController?.visibleViewController?.navigationItem.rightBarButtonItem = nil
+    }
 
     
     //MARK: - View methods

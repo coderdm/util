@@ -1,20 +1,16 @@
 //
-//  BillRowAddressTableViewCell.swift
+//  RecentBillsTotalAmountTableViewCell.swift
 //  Util POC
 //
-//  Created by Sridhar, Swaroop (US - Bengaluru) on 27/04/17.
+//  Created by Doddabela, Supreeth A (US - Bengaluru) on 5/10/17.
 //  Copyright © 2017 Sridhar, Swaroop (US - Bengaluru). All rights reserved.
 //
 
 import UIKit
 
-class BillRowAddressTableViewCell: UITableViewCell {
+class RecentBillsTotalAmountTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var expandableImage: UIImageView!
-    @IBOutlet weak var addressLabel: UILabel!
-    
     override func awakeFromNib() {
-        
         super.awakeFromNib()
         // Initialization code
     }
