@@ -89,7 +89,7 @@ class SignUpPasswordViewController: UIViewController {
         }
         
         if a == true && b == true {
-            showServiceErrorAlert(imageName: "success", message: "You have successfully registered your account!", buttonTitle: "Ok", success: false)
+            showServiceErrorAlert(imageName: "success", message: "You have successfully registered your account!", buttonTitle: "Ok", success: true)
         }
     }
     

@@ -37,6 +37,9 @@
 		90093C131EC315190098EB1F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C121EC315190098EB1F /* Bill.swift */; };
 		90093C151EC31CB60098EB1F /* BillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C141EC31CB60098EB1F /* BillTableViewCell.swift */; };
 		90093C171EC331840098EB1F /* PayForAnotherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C161EC331840098EB1F /* PayForAnotherTableViewController.swift */; };
+		90093C191EC443290098EB1F /* SignupAddressServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C181EC443290098EB1F /* SignupAddressServicesViewController.swift */; };
+		90093C1B1EC44A220098EB1F /* SignupServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C1A1EC44A220098EB1F /* SignupServicesTableViewCell.swift */; };
+		90093C1D1EC46A740098EB1F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C1C1EC46A740098EB1F /* Service.swift */; };
 		9078565C1EC198430024222B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564A1EC198430024222B /* Roboto-Black.ttf */; };
 		9078565D1EC198430024222B /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564B1EC198430024222B /* Roboto-BlackItalic.ttf */; };
 		9078565E1EC198430024222B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564C1EC198430024222B /* Roboto-Bold.ttf */; };
@@ -90,6 +93,9 @@
 		90093C121EC315190098EB1F /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		90093C141EC31CB60098EB1F /* BillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillTableViewCell.swift; sourceTree = "<group>"; };
 		90093C161EC331840098EB1F /* PayForAnotherTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayForAnotherTableViewController.swift; sourceTree = "<group>"; };
+		90093C181EC443290098EB1F /* SignupAddressServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupAddressServicesViewController.swift; sourceTree = "<group>"; };
+		90093C1A1EC44A220098EB1F /* SignupServicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupServicesTableViewCell.swift; sourceTree = "<group>"; };
+		90093C1C1EC46A740098EB1F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9078564A1EC198430024222B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		9078564B1EC198430024222B /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		9078564C1EC198430024222B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 				46DC16AE1EC18B0800F1B77C /* MapViewController.swift */,
 				823C81391EC2F01900A39A5E /* CustomAlertViewController.swift */,
 				90093C161EC331840098EB1F /* PayForAnotherTableViewController.swift */,
+				90093C181EC443290098EB1F /* SignupAddressServicesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				469F36031EBAF753002AF919 /* PowerOutageTableViewCell.swift */,
 				90093C101EC30FF80098EB1F /* RecentBillsTotalAmountTableViewCell.swift */,
 				90093C141EC31CB60098EB1F /* BillTableViewCell.swift */,
+				90093C1A1EC44A220098EB1F /* SignupServicesTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			children = (
 				469F36081EBB16B4002AF919 /* Issue.swift */,
 				90093C121EC315190098EB1F /* Bill.swift */,
+				90093C1C1EC46A740098EB1F /* Service.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 				469F360B1EBB2B70002AF919 /* UIView.swift in Sources */,
 				469F36041EBAF753002AF919 /* PowerOutageTableViewCell.swift in Sources */,
 				464975151EAF2375005CFE24 /* LoginViewController.swift in Sources */,
+				90093C1B1EC44A220098EB1F /* SignupServicesTableViewCell.swift in Sources */,
 				82DCF75C1EC214E4009E7055 /* SignUpAddressViewController.swift in Sources */,
 				90093C151EC31CB60098EB1F /* BillTableViewCell.swift in Sources */,
 				90093C131EC315190098EB1F /* Bill.swift in Sources */,
@@ -357,6 +367,8 @@
 				82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */,
 				82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */,
 				4649757B1EB1A635005CFE24 /* BillRowAddressTableViewCell.swift in Sources */,
+				90093C191EC443290098EB1F /* SignupAddressServicesViewController.swift in Sources */,
+				90093C1D1EC46A740098EB1F /* Service.swift in Sources */,
 				464975261EAF279C005CFE24 /* TabBarViewController.swift in Sources */,
 				82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */,
 				82DCF75E1EC23E45009E7055 /* SignUpPasswordViewController.swift in Sources */,
