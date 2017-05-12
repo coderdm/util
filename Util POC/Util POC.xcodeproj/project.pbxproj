@@ -40,6 +40,8 @@
 		90093C191EC443290098EB1F /* SignupAddressServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C181EC443290098EB1F /* SignupAddressServicesViewController.swift */; };
 		90093C1B1EC44A220098EB1F /* SignupServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C1A1EC44A220098EB1F /* SignupServicesTableViewCell.swift */; };
 		90093C1D1EC46A740098EB1F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90093C1C1EC46A740098EB1F /* Service.swift */; };
+		9026C09C1EC47AD1009571CC /* BillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C09B1EC47AD1009571CC /* BillDetailViewController.swift */; };
+		9026C0A01EC59856009571CC /* BillAddressDetailslTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C09F1EC59856009571CC /* BillAddressDetailslTableViewCell.swift */; };
 		9078565C1EC198430024222B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564A1EC198430024222B /* Roboto-Black.ttf */; };
 		9078565D1EC198430024222B /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564B1EC198430024222B /* Roboto-BlackItalic.ttf */; };
 		9078565E1EC198430024222B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9078564C1EC198430024222B /* Roboto-Bold.ttf */; };
@@ -96,6 +98,8 @@
 		90093C181EC443290098EB1F /* SignupAddressServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupAddressServicesViewController.swift; sourceTree = "<group>"; };
 		90093C1A1EC44A220098EB1F /* SignupServicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupServicesTableViewCell.swift; sourceTree = "<group>"; };
 		90093C1C1EC46A740098EB1F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		9026C09B1EC47AD1009571CC /* BillDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillDetailViewController.swift; sourceTree = "<group>"; };
+		9026C09F1EC59856009571CC /* BillAddressDetailslTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillAddressDetailslTableViewCell.swift; sourceTree = "<group>"; };
 		9078564A1EC198430024222B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		9078564B1EC198430024222B /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		9078564C1EC198430024222B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				823C81391EC2F01900A39A5E /* CustomAlertViewController.swift */,
 				90093C161EC331840098EB1F /* PayForAnotherTableViewController.swift */,
 				90093C181EC443290098EB1F /* SignupAddressServicesViewController.swift */,
+				9026C09B1EC47AD1009571CC /* BillDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				90093C101EC30FF80098EB1F /* RecentBillsTotalAmountTableViewCell.swift */,
 				90093C141EC31CB60098EB1F /* BillTableViewCell.swift */,
 				90093C1A1EC44A220098EB1F /* SignupServicesTableViewCell.swift */,
+				9026C09F1EC59856009571CC /* BillAddressDetailslTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -365,11 +371,13 @@
 				464975281EAF2A11005CFE24 /* RecentBillsTableViewController.swift in Sources */,
 				90093C171EC331840098EB1F /* PayForAnotherTableViewController.swift in Sources */,
 				82AA6B051EB38DF000EBE95E /* UINavigationItem.swift in Sources */,
+				9026C0A01EC59856009571CC /* BillAddressDetailslTableViewCell.swift in Sources */,
 				82E03A771EC0EACA000DB75F /* SignUpIntroViewController.swift in Sources */,
 				4649757B1EB1A635005CFE24 /* BillRowAddressTableViewCell.swift in Sources */,
 				90093C191EC443290098EB1F /* SignupAddressServicesViewController.swift in Sources */,
 				90093C1D1EC46A740098EB1F /* Service.swift in Sources */,
 				464975261EAF279C005CFE24 /* TabBarViewController.swift in Sources */,
+				9026C09C1EC47AD1009571CC /* BillDetailViewController.swift in Sources */,
 				82AA6B031EB3850200EBE95E /* UIColor.swift in Sources */,
 				82DCF75E1EC23E45009E7055 /* SignUpPasswordViewController.swift in Sources */,
 				8256A0BF1EC18975007A22EB /* UITextField.swift in Sources */,
