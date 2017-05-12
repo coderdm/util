@@ -17,6 +17,10 @@ class BillAddressDetailslTableViewCell: UITableViewCell {
     @IBOutlet weak var expandIconButton: UIButton!
     var delegate:BillAddressDetailsDelegate?
 
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var readingHolderView: UIView!
+    
+    @IBOutlet weak var readingHolderViewHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

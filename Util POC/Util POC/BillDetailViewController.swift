@@ -9,12 +9,16 @@
 import UIKit
 
 class BillDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,BillAddressDetailsDelegate {
-    var expandedArray:Array<Bool> = [false,false]
     
+    var isMeterDetailsExpanded:Bool = false
+    
+    @IBOutlet weak var billDetailTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,11 +60,19 @@ class BillDetailViewController: UIViewController,UITableViewDelegate,UITableView
                 
             cell.delegate = self
             
-            let path = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
+            if self.isMeterDetailsExpanded == true {
+                cell.expandIconButton.setImage(UIImage(named: "minusButton"), for: UIControlState.normal)
+                cell.readingHolderViewHeightConstraint.constant = 44.0
+            }else{
+                cell.expandIconButton.setImage(UIImage(named: "plusButton"), for: UIControlState.normal)
+                cell.readingHolderViewHeightConstraint.constant = 0.0
+            }
+            
+            let path = UIBezierPath(roundedRect: cell.containerView.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
             
             let maskLayer = CAShapeLayer()
             maskLayer.path = path.cgPath
-            cell.layer.mask = maskLayer
+            cell.containerView.layer.mask = maskLayer
             
             return cell
             
@@ -71,11 +83,13 @@ class BillDetailViewController: UIViewController,UITableViewDelegate,UITableView
             cell = tableView.dequeueReusableCell(withIdentifier: "PlanDetailsCell", for: indexPath)
         }else {
             cell = tableView.dequeueReusableCell(withIdentifier: "RecentBillsTotalAmount", for: indexPath)
-            let path = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.bottomLeft,.bottomRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
             
-            let maskLayer = CAShapeLayer()
-            maskLayer.path = path.cgPath
-            cell.layer.mask = maskLayer
+//            let path = UIBezierPath(roundedRect: (cell.viewWithTag(23)?.bounds)!, byRoundingCorners: [.bottomLeft,.bottomRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
+//            
+//            let maskLayer = CAShapeLayer()
+//            maskLayer.path = path.cgPath
+//            cell.viewWithTag(23)?.layer.mask = maskLayer
+            
         }
         
         
@@ -85,7 +99,11 @@ class BillDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 356
+            if self.isMeterDetailsExpanded == true {
+                return 393
+            }else{
+                return 356
+            }
             
         }else if indexPath.row == 1{
             return 384
@@ -100,7 +118,8 @@ class BillDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     // MARK: - BillAddressDetailsCell delegate methods
     func expandIconTapped(){
-        
+        self.isMeterDetailsExpanded =  self.isMeterDetailsExpanded == true ? false : true
+        self.billDetailTableView.reloadData()
     }
     
 }
