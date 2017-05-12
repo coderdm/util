@@ -68,11 +68,11 @@ class BillDetailViewController: UIViewController,UITableViewDelegate,UITableView
                 cell.readingHolderViewHeightConstraint.constant = 0.0
             }
             
-            let path = UIBezierPath(roundedRect: cell.containerView.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
-            
-            let maskLayer = CAShapeLayer()
-            maskLayer.path = path.cgPath
-            cell.containerView.layer.mask = maskLayer
+//            let path = UIBezierPath(roundedRect: cell.containerView.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
+//            
+//            let maskLayer = CAShapeLayer()
+//            maskLayer.path = path.cgPath
+//            cell.containerView.layer.mask = maskLayer
             
             return cell
             
