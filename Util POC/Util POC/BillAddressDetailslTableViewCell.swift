@@ -22,9 +22,28 @@ class BillAddressDetailslTableViewCell: UITableViewCell {
     
     @IBOutlet weak var readingHolderViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var billDetailHeaderLabelLeadingConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 480:
+                print("iPhone Classic")
+            case 960:
+                print("iPhone 4 or 4S")
+            case 1136:
+                self.billDetailHeaderLabelLeadingConstraint.constant = 20
+            case 1334:
+                    print("iPhone 6 or 6S")
+            case 2208:
+                print("iPhone 6+ or 6S+")
+            default:
+                print("unknown")
+            }
+        }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
