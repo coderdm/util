@@ -21,6 +21,7 @@ class MapViewController: UIViewController {
     var locationManager:CLLocationManager = CLLocationManager()
     var coordinateArray:[complaintFormat] = [complaintFormat]()
 
+    @IBOutlet weak var filterImageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var mapview: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,23 @@ class MapViewController: UIViewController {
         self.mapview.delegate = self
         
         self.mapview.showsUserLocation = true
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 480:
+                print("iPhone Classic")
+            case 960:
+                print("iPhone 4 or 4S")
+            case 1136:
+                self.filterImageViewLeadingConstraint.constant = 50.0
+            case 1334:
+                print("iPhone 6 or 6S")
+            case 2208:
+                print("iPhone 6+ or 6S+")
+            default:
+                print("unknown")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

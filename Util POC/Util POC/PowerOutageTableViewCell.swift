@@ -11,12 +11,15 @@ import UIKit
 class PowerOutageTableViewCell: UITableViewCell {
     @IBOutlet weak var lblHeaderDate: UILabel!
 
+    @IBOutlet weak var statusImageViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var statusImageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblSubOutageType: UILabel!
     @IBOutlet weak var lblHeaderOutage: UILabel!
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var lblReferenceNumberHeader: UILabel!
+    @IBOutlet weak var outageHeaderLabelLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblReferenceNumber: UILabel!
 
     
@@ -32,10 +35,24 @@ class PowerOutageTableViewCell: UITableViewCell {
         self.lblHeaderDate.textColor = UIColor.utlSunflowerYellow
         
         
-        let path = UIBezierPath(roundedRect: self.headerImageView.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 9.0, height: 9.0))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        self.headerImageView.layer.mask = maskLayer
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 480:
+                print("iPhone Classic")
+            case 960:
+                print("iPhone 4 or 4S")
+            case 1136:
+                self.outageHeaderLabelLeadingConstraint.constant = 20.0
+                self.statusImageViewTrailingConstraint.constant = 40.0
+                self.statusImageViewLeadingConstraint.constant = 40.0
+            case 1334:
+                print("iPhone 6 or 6S")
+            case 2208:
+                print("iPhone 6+ or 6S+")
+            default:
+                print("unknown")
+            }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
