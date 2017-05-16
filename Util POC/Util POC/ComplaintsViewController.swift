@@ -249,7 +249,11 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         let issue = Issue(issueType: self.outageTextLabel.text!, dateReported: self.dateFormatMMDDYYYY(for: Date.init()), issueAddress: self.lblAddressField.text!, status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : referenecNumber)
         
         appDelegate.issue.insert(issue, at: 0)
-        showAlert(imageName: "mail-icon", message: "Thank you! your notification has been received. Your reference number is \(referenecNumber)", buttonTitle: "Ok",completion: {
+        showAlert(imageName: "mail-icon", message: "Thank you! your notification has been received. Your reference number is \(referenecNumber)", buttonTitle: "Ok",completion: { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            let _ = strongSelf.navigationController?.popViewController(animated: true)
         })
     }
     @IBAction func btnRemoveImagePreview3(_ sender: Any) {
