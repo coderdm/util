@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -396,7 +396,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$170" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWA-ya-DgH">
-                                            <rect key="frame" x="147" y="34" width="83" height="32"/>
+                                            <rect key="frame" x="146" y="34" width="83" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="bg5-Ta-Wnl"/>
                                             </constraints>
@@ -994,7 +994,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$170" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4o7-p1-Dhm">
-                                                    <rect key="frame" x="147" y="33.5" width="83" height="32"/>
+                                                    <rect key="frame" x="146" y="33.5" width="83" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="B8P-Jl-IQG"/>
                                                     </constraints>
@@ -1074,7 +1074,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZcU-w9-s0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3860" y="-80.059970014992516"/>
+            <point key="canvasLocation" x="4810" y="-96"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="UQb-QQ-BLA">
@@ -1498,7 +1498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xg3-T5-pyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3782" y="1429"/>
+            <point key="canvasLocation" x="4204" y="1446"/>
         </scene>
         <!--REPORT AN ISSUE-->
         <scene sceneID="ddG-cx-kNt">
@@ -1846,8 +1846,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88w-bV-0jm">
-                                <rect key="frame" x="151" y="513" width="72" height="30"/>
-                                <state key="normal" title="LogOut">
+                                <rect key="frame" x="137" y="513" width="100" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Eys-y6-f0Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                <state key="normal" title="Logout">
                                     <color key="titleColor" red="0.98039215686274506" green="0.24313725490196078" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -2088,15 +2092,14 @@ Miami FL</string>
                             <constraint firstItem="88w-bV-0jm" firstAttribute="top" secondItem="xJa-3L-lUe" secondAttribute="bottom" constant="21" id="1E9-bX-zl1"/>
                             <constraint firstItem="xJa-3L-lUe" firstAttribute="top" secondItem="Gbj-4j-Scq" secondAttribute="bottom" constant="2" id="7xz-Q7-wkF"/>
                             <constraint firstItem="88w-bV-0jm" firstAttribute="centerX" secondItem="VDn-Dk-cl7" secondAttribute="centerX" id="DcK-KL-qIO"/>
-                            <constraint firstItem="88w-bV-0jm" firstAttribute="leading" secondItem="VDn-Dk-cl7" secondAttribute="leadingMargin" constant="135" id="E9q-OJ-pBu"/>
                             <constraint firstItem="Gbj-4j-Scq" firstAttribute="top" secondItem="1C5-Zx-rfL" secondAttribute="bottom" id="GEu-xC-WTp"/>
                             <constraint firstItem="C4b-Gg-3Rl" firstAttribute="leading" secondItem="Gbj-4j-Scq" secondAttribute="leading" id="JyJ-ea-tOS"/>
                             <constraint firstItem="Yuz-V0-H5Y" firstAttribute="leading" secondItem="VDn-Dk-cl7" secondAttribute="leadingMargin" constant="-12" id="S9e-T5-gO6"/>
                             <constraint firstItem="xJa-3L-lUe" firstAttribute="width" secondItem="Gbj-4j-Scq" secondAttribute="width" id="T10-wS-hS7"/>
                             <constraint firstAttribute="trailing" secondItem="Gbj-4j-Scq" secondAttribute="trailing" id="adc-fb-b4J"/>
                             <constraint firstItem="xJa-3L-lUe" firstAttribute="leading" secondItem="Gbj-4j-Scq" secondAttribute="leading" id="dFB-Ky-qjK"/>
+                            <constraint firstItem="GfB-Nf-U88" firstAttribute="top" secondItem="88w-bV-0jm" secondAttribute="bottom" constant="10" id="jFo-hY-dPT"/>
                             <constraint firstItem="Gbj-4j-Scq" firstAttribute="leading" secondItem="VDn-Dk-cl7" secondAttribute="leading" id="pdR-Tu-dqt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="88w-bV-0jm" secondAttribute="trailing" constant="136" id="uSi-dh-N3u"/>
                             <constraint firstAttribute="bottom" secondItem="xJa-3L-lUe" secondAttribute="bottom" constant="111" id="xSI-jA-6ED"/>
                         </constraints>
                     </view>
@@ -2104,6 +2107,7 @@ Miami FL</string>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="logoutButton" destination="88w-bV-0jm" id="KtK-rN-CxW"/>
                         <outlet property="service1Button" destination="KcS-JD-JYd" id="wMN-S8-q7Y"/>
                         <outlet property="serviceViewDetail1HeightConstraint" destination="bnK-Uu-mOu" id="hE0-t1-fpp"/>
                     </connections>
@@ -2345,7 +2349,7 @@ Miami FL</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$170" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-bu-I1g">
-                                            <rect key="frame" x="147" y="33.5" width="83" height="32"/>
+                                            <rect key="frame" x="146" y="33.5" width="83" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="aD6-nc-qhC"/>
                                             </constraints>

@@ -22,22 +22,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePayForAnotherSelected.isHidden = true;
-        
+    
+        self.txtFieldPassword.delegate = self
         //Setting the logo of UTIL to the navigation bar
         let logo = UIImage(named: "nav-logo")
         let imageView = UIImageView(image:logo)
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
         
-        //Changing the navigation bar color
-        navigationController?.navigationBar.barTintColor = UIColor.utlSlate
-        self.txtFieldPassword.delegate = self
-        
-        
         //For Removing the bottom black line in navigation bar
         //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         //self.navigationController?.navigationBar.shadowImage = UIImage()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Changing the navigation bar color
+        navigationController?.navigationBar.barTintColor = UIColor.utlSlate
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {

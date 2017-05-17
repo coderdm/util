@@ -13,13 +13,13 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var serviceViewDetail1HeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var service1Button: UIButton!
   
+    @IBOutlet weak var logoutButton: UIButton!
     var isView1Shown:Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = .utlSunflowerYellow
-        navigationController?.navigationBar.isTranslucent = true
         // Do any additional setup after loading the view.
         
         serviceViewDetail1HeightConstraint.constant = 0.0
@@ -29,6 +29,10 @@ class DetailsViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "accountIcon", title: "Account Details")
         navigationController?.visibleViewController?.navigationItem.rightBarButtonItem = nil
+        logoutButton.layer.borderColor = UIColor.red.cgColor
+        logoutButton.layer.borderWidth = 1.0
+        logoutButton.layer.cornerRadius = 15.0
+
     }
 
 
