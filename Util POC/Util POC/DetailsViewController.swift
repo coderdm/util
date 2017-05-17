@@ -55,6 +55,9 @@ class DetailsViewController: UIViewController {
         
     }
 
+    @IBAction func btnLogouttapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
 
     /*

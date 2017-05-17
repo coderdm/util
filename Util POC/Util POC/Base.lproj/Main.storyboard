@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aZe-YR-8sg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -396,7 +396,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$170" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWA-ya-DgH">
-                                            <rect key="frame" x="146.5" y="34" width="83" height="32"/>
+                                            <rect key="frame" x="147" y="34" width="83" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="bg5-Ta-Wnl"/>
                                             </constraints>
@@ -994,7 +994,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$170" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4o7-p1-Dhm">
-                                                    <rect key="frame" x="146.5" y="33.5" width="83" height="32"/>
+                                                    <rect key="frame" x="147" y="33.5" width="83" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="B8P-Jl-IQG"/>
                                                     </constraints>
@@ -1856,6 +1856,9 @@
                                         <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnLogouttapped:" destination="FYY-nL-848" eventType="touchUpInside" id="XhS-7B-xOE"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJa-3L-lUe">
                                 <rect key="frame" x="0.0" y="57" width="375" height="435"/>
@@ -2342,7 +2345,7 @@ Miami FL</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$170" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-bu-I1g">
-                                            <rect key="frame" x="146.5" y="33.5" width="83" height="32"/>
+                                            <rect key="frame" x="147" y="33.5" width="83" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="aD6-nc-qhC"/>
                                             </constraints>
