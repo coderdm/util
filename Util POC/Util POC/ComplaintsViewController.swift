@@ -81,7 +81,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = " "
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
-        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Complaints")
+        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Issues")
     }
     
      // MARK: - Custom
