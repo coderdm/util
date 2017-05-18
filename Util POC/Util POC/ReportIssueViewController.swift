@@ -50,7 +50,7 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Complaints")
+        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Issues")
         
         let rightButtonItem = UIBarButtonItem.init(
             title: "Map",

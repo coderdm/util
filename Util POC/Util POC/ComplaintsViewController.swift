@@ -81,7 +81,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = " "
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
-        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Issues")
+        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Report a New Issue")
     }
     
      // MARK: - Custom
@@ -126,7 +126,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     
     private func showOutageSelection() {
         // Create the AlertController and add its actions like button in ActionSheet
-        let actionSheetController = UIAlertController(title: "Please Choose", message: "Outage Type", preferredStyle: .actionSheet)
+        let actionSheetController = UIAlertController(title: "Please Choose", message: "Issue Type", preferredStyle: .actionSheet)
         
         let streetLightOutage = UIAlertAction(title: "Streetlight Outage", style: .default) { action -> Void in
             self.outageTextLabel.text = "Streetlight Outage"
@@ -236,8 +236,8 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
     
     @IBAction func btnSubmitTapped(_ sender: Any) {
         
-        if self.outageTextLabel.text == "Choose Outage Type" {
-            showAlert(imageName: "safetyCautionRed", message: "Please choose outage type", buttonTitle: "Ok", completion: nil)
+        if self.outageTextLabel.text == "Choose Issue Type" {
+            showAlert(imageName: "safetyCautionRed", message: "Please choose Issue Type", buttonTitle: "Ok", completion: nil)
             return
         }
         if (self.lblAddressField.text?.isEmpty)! {
