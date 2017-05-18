@@ -539,7 +539,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deloitte.util;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96582d9c-b38c-402f-99d2-5f0772640461";
+				PROVISIONING_PROFILE = "0b037500-46f0-4182-a3ab-f50ad6cb5c0e";
 				PROVISIONING_PROFILE_SPECIFIER = "UTIL profile";
 				SWIFT_VERSION = 3.0;
 			};
