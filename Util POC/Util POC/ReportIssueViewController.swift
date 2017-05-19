@@ -27,10 +27,10 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
     
         if (appDelegate.issue.isEmpty) {
-            let issue1 = Issue(issueType: "Streetlight Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Miami", status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : "2356879627")
+            let issue1 = Issue(issueType: "Streetlight Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Tampa", status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : "2356879627")
             appDelegate.issue.append(issue1)
             
-            let issue2 = Issue(issueType: "Power Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Miami", status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : "7625467892")
+            let issue2 = Issue(issueType: "Power Outage", dateReported: "05/05/2017", issueAddress: "3275NW 24thStreet Rd, Tampa", status: "Report Submitted", lat: "25.7617", lon: "80.1918" , referenceNumber : "7625467892")
             appDelegate.issue.append(issue2)
         }
         
@@ -50,7 +50,7 @@ class ReportIssueViewController: UIViewController,UITableViewDataSource, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Complaints")
+        navigationController?.visibleViewController?.navigationItem.addNavigationView(withImage: "telemarketer", title: "Issues")
         
         let rightButtonItem = UIBarButtonItem.init(
             title: "Map",

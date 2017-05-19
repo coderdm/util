@@ -521,10 +521,10 @@
 				INFOPLIST_FILE = "Util POC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deloitte.pushsample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deloitte.util;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a9ebc497-025b-46f4-a12c-81f5a3799d78";
-				PROVISIONING_PROFILE_SPECIFIER = "Push Sample App Certificate";
+				PROVISIONING_PROFILE = "96582d9c-b38c-402f-99d2-5f0772640461";
+				PROVISIONING_PROFILE_SPECIFIER = "UTIL profile";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -537,10 +537,10 @@
 				INFOPLIST_FILE = "Util POC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deloitte.pushsample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deloitte.util;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a9ebc497-025b-46f4-a12c-81f5a3799d78";
-				PROVISIONING_PROFILE_SPECIFIER = "Push Sample App Certificate";
+				PROVISIONING_PROFILE = "0b037500-46f0-4182-a3ab-f50ad6cb5c0e";
+				PROVISIONING_PROFILE_SPECIFIER = "UTIL profile";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

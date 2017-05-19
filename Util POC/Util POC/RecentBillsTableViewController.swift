@@ -15,7 +15,6 @@ class RecentBillsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = .utlSunflowerYellow
-        navigationController?.navigationBar.isTranslucent = true
         self.tableView.tableFooterView = UIView(frame: .zero)
         
         let billOne = Bill(billType: "Electricity Services",totalConsumption: "634 Kwh",billAmount: "$63",year:"May 2017")
