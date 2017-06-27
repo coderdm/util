@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="bCH-Fo-Q7R">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" id="N8o-6F-MbV" customClass="LoadingViewController" customModule="Util_POC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sa3-pC-KPX"/>
+                        <viewControllerLayoutGuide type="bottom" id="VZa-y7-AfB"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="zDr-Hd-VpS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4Ad-O7-GPq">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="4Ad-O7-GPq" firstAttribute="centerY" secondItem="zDr-Hd-VpS" secondAttribute="centerY" id="AcI-kP-EJR"/>
+                            <constraint firstItem="4Ad-O7-GPq" firstAttribute="centerX" secondItem="zDr-Hd-VpS" secondAttribute="centerX" id="jd3-gG-cgl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="4Ad-O7-GPq" id="L2M-Re-nJh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVH-XH-6hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1975" y="63"/>
+        </scene>
+        <!--Custom Alert View Controller-->
+        <scene sceneID="SOc-et-H5h">
+            <objects>
+                <viewController storyboardIdentifier="CustomAlertViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4fp-AX-CMd" customClass="CustomAlertViewController" customModule="Util_POC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fed-12-os8"/>
+                        <viewControllerLayoutGuide type="bottom" id="4aO-f1-a1R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YkH-Cj-l4S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AF8-kh-dY5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfb-5U-vMM">
+                                <rect key="frame" x="60" y="105" width="255" height="457"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wnh-q3-K2h">
+                                        <rect key="frame" x="98" y="20" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="E6w-E7-ZjO"/>
+                                            <constraint firstAttribute="height" constant="60" id="ZuS-8C-Hh9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-BS-vYx">
+                                        <rect key="frame" x="40" y="100" width="175" height="277"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2B-87-VRa">
+                                        <rect key="frame" x="20" y="387" width="215" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2MA-ZR-XBb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="actionButtonTapped:" destination="4fp-AX-CMd" eventType="touchUpInside" id="X9K-UZ-rrG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="O2B-87-VRa" secondAttribute="trailing" constant="20" id="6gW-FB-YuG"/>
+                                    <constraint firstItem="Wnh-q3-K2h" firstAttribute="top" secondItem="lfb-5U-vMM" secondAttribute="top" constant="20" id="CMs-bj-ypL"/>
+                                    <constraint firstItem="Onb-BS-vYx" firstAttribute="leading" secondItem="lfb-5U-vMM" secondAttribute="leading" constant="40" id="HH2-lJ-l2a"/>
+                                    <constraint firstItem="Onb-BS-vYx" firstAttribute="top" secondItem="Wnh-q3-K2h" secondAttribute="bottom" constant="20" id="HyF-ak-DCD"/>
+                                    <constraint firstItem="O2B-87-VRa" firstAttribute="top" secondItem="Onb-BS-vYx" secondAttribute="bottom" constant="10" id="JYP-IF-AhY"/>
+                                    <constraint firstItem="O2B-87-VRa" firstAttribute="leading" secondItem="lfb-5U-vMM" secondAttribute="leading" constant="20" id="R7O-Zp-qFA"/>
+                                    <constraint firstItem="Wnh-q3-K2h" firstAttribute="centerX" secondItem="lfb-5U-vMM" secondAttribute="centerX" id="e1p-Ba-3eC"/>
+                                    <constraint firstAttribute="bottom" secondItem="O2B-87-VRa" secondAttribute="bottom" constant="26" id="jPF-1k-QXx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Onb-BS-vYx" secondAttribute="trailing" constant="40" id="kMF-OL-ZZV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lfb-5U-vMM" firstAttribute="centerX" secondItem="YkH-Cj-l4S" secondAttribute="centerX" id="283-E9-WMU"/>
+                            <constraint firstItem="lfb-5U-vMM" firstAttribute="top" secondItem="Fed-12-os8" secondAttribute="bottom" constant="85" placeholder="YES" id="9Qp-If-8ky"/>
+                            <constraint firstItem="AF8-kh-dY5" firstAttribute="leading" secondItem="YkH-Cj-l4S" secondAttribute="leading" id="FtS-Vu-GA0"/>
+                            <constraint firstItem="lfb-5U-vMM" firstAttribute="leading" secondItem="YkH-Cj-l4S" secondAttribute="leading" constant="60" id="Hor-1J-bMf"/>
+                            <constraint firstItem="4aO-f1-a1R" firstAttribute="top" secondItem="AF8-kh-dY5" secondAttribute="bottom" id="Q5l-C8-You"/>
+                            <constraint firstItem="AF8-kh-dY5" firstAttribute="top" secondItem="Fed-12-os8" secondAttribute="bottom" id="XfP-9P-uJu"/>
+                            <constraint firstAttribute="trailing" secondItem="AF8-kh-dY5" secondAttribute="trailing" id="b65-iA-36o"/>
+                            <constraint firstItem="lfb-5U-vMM" firstAttribute="centerY" secondItem="YkH-Cj-l4S" secondAttribute="centerY" id="jpL-ii-KVs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertContainerView" destination="lfb-5U-vMM" id="kQ7-P2-pLF"/>
+                        <outlet property="alertImage" destination="Wnh-q3-K2h" id="h4s-Yd-Gh6"/>
+                        <outlet property="descLabel" destination="Onb-BS-vYx" id="q1S-VI-ypI"/>
+                        <outlet property="okButton" destination="O2B-87-VRa" id="ytn-7U-h7e"/>
+                        <outlet property="transparentBackgroundView" destination="AF8-kh-dY5" id="RdI-B5-Zl2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kCn-OO-8We" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2983" y="-29"/>
+        </scene>
+    </scenes>
+</document>
