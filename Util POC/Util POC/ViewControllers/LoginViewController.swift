@@ -57,7 +57,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.imageLoginSelected.isHidden = true
         self.btnPayForAnother.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         self.btnLogin.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        self.txtFieldPassword.isHidden = true
+        self.txtFieldPassword.isHidden = false
+        self.txtFieldPassword.text = ""
+        self.txtFieldPassword.isSecureTextEntry = false
+        self.txtFieldPassword.placeholder = "5 characters of Service Address"
     }
 
     @IBAction func LoginTabSelected(_ sender: Any) {
@@ -67,6 +70,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.btnLogin.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         self.btnPayForAnother.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         self.txtFieldPassword.isHidden = false
+        self.txtFieldPassword.isSecureTextEntry = true
+        self.txtFieldPassword.placeholder = "Password"
         
         self.txtFieldUserName.text = "vmeghmala"
         self.txtFieldPassword.text = "vivsap001"
