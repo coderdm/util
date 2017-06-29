@@ -12,6 +12,8 @@
 		9013B78D1EEFDD6F00EEBD8D /* AccountDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013B78C1EEFDD6F00EEBD8D /* AccountDetailsService.swift */; };
 		9013B78F1EEFECCE00EEBD8D /* ReverseGeocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013B78E1EEFECCE00EEBD8D /* ReverseGeocode.swift */; };
 		9013B7911EF125FB00EEBD8D /* AccountDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013B7901EF125FB00EEBD8D /* AccountDetails.swift */; };
+		9021788E1F051D5700EA46BE /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9021788D1F051D5700EA46BE /* URLConstants.swift */; };
+		9063CA7B1F03FF730060F08B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9063CA7A1F03FF730060F08B /* AuthenticationService.swift */; };
 		9077E0311ED7E912001693D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9077E02F1ED7E912001693D9 /* LaunchScreen.storyboard */; };
 		9077E0321ED7E912001693D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9077E0301ED7E912001693D9 /* Main.storyboard */; };
 		9077E0371ED7EA68001693D9 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077E0341ED7EA68001693D9 /* Bill.swift */; };
@@ -85,6 +87,8 @@
 		9013B78C1EEFDD6F00EEBD8D /* AccountDetailsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsService.swift; sourceTree = "<group>"; };
 		9013B78E1EEFECCE00EEBD8D /* ReverseGeocode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseGeocode.swift; sourceTree = "<group>"; };
 		9013B7901EF125FB00EEBD8D /* AccountDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetails.swift; sourceTree = "<group>"; };
+		9021788D1F051D5700EA46BE /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
+		9063CA7A1F03FF730060F08B /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		9077E02F1ED7E912001693D9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9077E0301ED7E912001693D9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9077E0341ED7EA68001693D9 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 			children = (
 				9077E03B1ED7FD10001693D9 /* NetworkManager.swift */,
 				90D94CDD1EE804E6007F05C2 /* Utils.swift */,
+				9021788D1F051D5700EA46BE /* URLConstants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				9077E0651EE02258001693D9 /* CreateIssueService.swift */,
 				9013B78C1EEFDD6F00EEBD8D /* AccountDetailsService.swift */,
 				9013B78E1EEFECCE00EEBD8D /* ReverseGeocode.swift */,
+				9063CA7A1F03FF730060F08B /* AuthenticationService.swift */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 				909278D41ED6F61400B1CC7D /* ReportIssueViewController.swift in Sources */,
 				909278CD1ED6F61400B1CC7D /* ComplaintsViewController.swift in Sources */,
 				90D94CDA1EE7F597007F05C2 /* NSdate.swift in Sources */,
+				9021788E1F051D5700EA46BE /* URLConstants.swift in Sources */,
 				90D94CDE1EE804E6007F05C2 /* Utils.swift in Sources */,
 				9077E0411ED83820001693D9 /* OutageHistoryService.swift in Sources */,
 				909278C61ED6F61400B1CC7D /* BillTableViewCell.swift in Sources */,
@@ -474,6 +481,7 @@
 				9077E0641EE01574001693D9 /* URLRequest.swift in Sources */,
 				909278AB1ED6F61400B1CC7D /* UITextField.swift in Sources */,
 				9013B78D1EEFDD6F00EEBD8D /* AccountDetailsService.swift in Sources */,
+				9063CA7B1F03FF730060F08B /* AuthenticationService.swift in Sources */,
 				909278D51ED6F61400B1CC7D /* SignupAddressServicesViewController.swift in Sources */,
 				909278CC1ED6F61400B1CC7D /* BillDetailViewController.swift in Sources */,
 				909278CF1ED6F61400B1CC7D /* DetailsViewController.swift in Sources */,

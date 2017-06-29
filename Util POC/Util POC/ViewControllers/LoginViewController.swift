@@ -8,7 +8,8 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate,AuthenticationServiceDelegate {
+    
     @IBOutlet weak var txtFieldPassword: UITextField!
 
     @IBOutlet weak var btnPayForAnother: UIButton!
@@ -51,6 +52,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    
+    // MARK: - Action Methods
+    
     @IBAction func PayForAnotherTabSelected(_ sender: Any) {
         self.loginTabSelected = false
         self.imagePayForAnotherSelected.isHidden = false
@@ -82,7 +86,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if self.loginTabSelected {
             if self.txtFieldUserName.text == "vmeghmala" && self.txtFieldPassword.text == "vivsap001" {
-                self.performSegue(withIdentifier: "segueToTabbarController", sender: self)
+                
+                var authenticationService = AuthenticationService()
+                authenticationService.delegate = self
+                authenticationService.authenticate(accountNumber: "vmeghmala", ssnNumber: "vivsap001")
+                
             }else{
                 let alert = UIAlertController(title: nil, message: "Please provide valid credentials.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
@@ -90,13 +98,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             }
             
-            
         }else{
             self.performSegue(withIdentifier: "segueToPayForAnother", sender: self)
         }
         
     }
     
+    
+    // MARK: - AuthenticationServiceDelegate Methods
+    
+    func authenticationSuccess(success : Bool){
+        
+        
+        DispatchQueue.main.async {
+            if success{
+                self.performSegue(withIdentifier: "segueToPINScreen", sender: self)
+            }else{
+                let alert = UIAlertController(title: nil, message: "Please provide valid credentials.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+       
+        
+    }
     
 }
 

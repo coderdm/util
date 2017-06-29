@@ -63,11 +63,7 @@ class AccountDetailsService{
             if self.delegate != nil && self.delegate?.accountDetails(accountDetails: accountDetails) != nil  {
                 
             }
-            
         }
-        
-        
-        
     }
 
     
