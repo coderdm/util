@@ -22,7 +22,7 @@ class AccountDetailsService{
         let url = NSURL(string: "http://socwes1er46.solutions.glbsnet.com:8000/sap/opu/odata/sap/ZUTIL_APP_SRV/Notif_accountSet?$format=json")
         
         var request = URLRequest.init(url:url! as URL)
-        request.requestWithAuthorizationHeader(username: "vmeghmala", password: "vivsap001")
+        request.requestWithAuthorizationHeader(username: "", password: "")
        
         NetworkManager.sharedNetworkManagerInstance.performDataTaskWithRequest(request:request) { (result : Any , response:URLResponse)  in
             
@@ -56,7 +56,7 @@ class AccountDetailsService{
             let phoneNumber = accountDetailItem["Phone"] as! String
             let address = accountDetailItem["Address"] as! String
             //let email = accountDetailItem["Email"] as! String
-            let email = "dd@deloitte.com"
+            let email = ""
             
             let accountDetails = AccountDetails(firstName: firstName, lastName: lastName, accountNumber: accountNumber, address: address, email: email, phoneNumber: phoneNumber, dateOfBirth: dateOfBirth)
             
