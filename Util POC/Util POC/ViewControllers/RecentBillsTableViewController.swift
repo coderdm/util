@@ -56,6 +56,9 @@ class RecentBillsTableViewController: UITableViewController {
         return cell
     }
     
+    override public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
+        return 56
+    }
     override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 56
     }

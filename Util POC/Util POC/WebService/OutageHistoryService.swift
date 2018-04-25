@@ -19,8 +19,8 @@ class OutageHistoryService: NSObject {
     
     func getOutageHistory() {
         
-        let url = NSURL(string: "http://socwes1er46.solutions.glbsnet.com:8000/sap/opu/odata/sap/ZUTIL_APP_SRV/Notif_mainSet")
-        
+        //let url = NSURL(string: "http://socwes1er46.solutions.glbsnet.com:8000/sap/opu/odata/sap/ZUTIL_APP_SRV/Notif_mainSet")
+        let url = NSURL(string: "https://desolate-cliffs-96575.herokuapp.com/fetchcomplaints")
         var request = URLRequest.init(url:url! as URL)
         request.requestWithAuthorizationHeader(username: "vmeghmala", password: "vivsap001")
         NetworkManager.sharedNetworkManagerInstance.performDataTaskWithRequest(request:request) { (result : Any , response:URLResponse)  in

@@ -18,10 +18,11 @@ class CreateIssueService {
     
     func createAnIssue() {
         
-        let url = NSURL(string: "http://socwes1er46.solutions.glbsnet.com:8000/sap/opu/odata/sap/ZUTIL_APP_SRV/Notif_mainSet")
-        
+        //let url = NSURL(string: "http://socwes1er46.solutions.glbsnet.com:8000/sap/opu/odata/sap/ZUTIL_APP_SRV/Notif_mainSet")
+        let url = NSURL(string: "https://desolate-cliffs-96575.herokuapp.com/addcomplaint")
         var request = URLRequest.init(url:url! as URL)
-        request.requestWithAuthorizationTokenHeader(token: UserDefaults.standard.value(forKey: "csrfToken") as! String)
+        //request.requestWithAuthorizationTokenHeader(token: UserDefaults.standard.value(forKey: "csrfToken") as! String)
+        request.httpMethod = "POST"
         
         let params = self.createDictForRequest()
         
@@ -40,6 +41,15 @@ class CreateIssueService {
     func createDictForRequest() -> Dictionary<String, Any> {
         
         let jsonObject: [String: Any] = [
+            "Bpart": "23455"
+        ]
+        return jsonObject
+    }
+    
+    /*
+    func createDictForRequest() -> Dictionary<String, Any> {
+        
+        let jsonObject: [String: Any] = [
             "Bpart": "",
             "FromDate": "00000000",
             "ToDate": "00000000",
@@ -48,10 +58,10 @@ class CreateIssueService {
         ]
         return jsonObject
     }
-
+     */
     func parse(results : [String : Any]){
         
-        if self.delegate != nil && self.delegate?.issueCreatedWithReference(referenceNumber: results["Qmnum"] as! String) != nil  {
+        if self.delegate != nil && self.delegate?.issueCreatedWithReference(referenceNumber: results["  "] as! String) != nil  {
             
         }
     }

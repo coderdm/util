@@ -19,7 +19,8 @@ class AccountDetailsService{
     
     func getAccountDetails(){
         
-        let url = NSURL(string: "http://socwes1er46.solutions.glbsnet.com:8000/sap/opu/odata/sap/ZUTIL_APP_SRV/Notif_accountSet?$format=json")
+        //let url = NSURL(string: "http://socwes1er46.solutions.glbsnet.com:8000/sap/opu/odata/sap/ZUTIL_APP_SRV/Notif_accountSet?$format=json")
+        let url = NSURL(string: "https://desolate-cliffs-96575.herokuapp.com/accountdetails")
         
         var request = URLRequest.init(url:url! as URL)
         request.requestWithAuthorizationHeader(username: "", password: "")
@@ -55,8 +56,8 @@ class AccountDetailsService{
             let dateOfBirth = accountDetailItem["Dob"] as! String
             let phoneNumber = accountDetailItem["Phone"] as! String
             let address = accountDetailItem["Address"] as! String
-            //let email = accountDetailItem["Email"] as! String
-            let email = ""
+            let email = accountDetailItem["Email"] as! String
+            //let email = ""
             
             let accountDetails = AccountDetails(firstName: firstName, lastName: lastName, accountNumber: accountNumber, address: address, email: email, phoneNumber: phoneNumber, dateOfBirth: dateOfBirth)
             

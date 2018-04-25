@@ -35,5 +35,4 @@ extension URLRequest{
         self.addValue("application/json", forHTTPHeaderField: "Accept")
         self.addValue(token, forHTTPHeaderField: "X-CSRF-Token")
     }
-    
 }

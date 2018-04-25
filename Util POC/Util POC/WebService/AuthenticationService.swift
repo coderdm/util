@@ -17,8 +17,8 @@ class AuthenticationService {
     var delegate : AuthenticationServiceDelegate?
     
     func authenticate(accountNumber : String , ssnNumber : String){
-        
-        let url = NSURL(string: AppUrl.AuthenticationUrl(withBPart: "1000000014", ssn: "0000"))
+        //let url = NSURL(string: AppUrl.AuthenticationUrl(withBPart: "1000000014", ssn: "0000"))
+        let url = NSURL(string: "https://desolate-cliffs-96575.herokuapp.com/loginutil")
         
         
         var request = URLRequest.init(url:url! as URL)
