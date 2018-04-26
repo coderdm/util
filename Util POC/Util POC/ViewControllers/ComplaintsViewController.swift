@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ComplaintsViewController: UIViewController, UINavigationControllerDelegate,CreateIssueServiceDelegate {
+class ComplaintsViewController: UIViewController, UINavigationControllerDelegate,CreateIssueServiceDelegate,UITextFieldDelegate {
     
     // IBOutlets
     
@@ -68,6 +68,7 @@ class ComplaintsViewController: UIViewController, UINavigationControllerDelegate
         lblAddressField.layer.cornerRadius = 20
         lblAddressField.layer.borderColor = UIColor.utlWarmGrey.withAlphaComponent(0.25).cgColor
         lblAddressField.layer.borderWidth = 1.0
+        lblAddressField.delegate = self
         
         addImageTitleLabel.text = "Add photos"
         addImageTitleLabel.textColor = UIColor.utlSlate.withAlphaComponent(0.85)
@@ -348,6 +349,11 @@ extension ComplaintsViewController: CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             break
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
     }
 }
 
